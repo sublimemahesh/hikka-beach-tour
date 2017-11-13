@@ -17,7 +17,7 @@ class Database {
 //    private $password = 'Si%%@122Kjfsmfsm';
      
     private $host = 'localhost';
-    private $name = 'new_admin';
+    private $name = 'hikka_beach_tour';
     private $user = 'root';
     private $password = '';
 
