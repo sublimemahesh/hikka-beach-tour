@@ -1,0 +1,408 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 9, 2017, 10:49:20 AM
+    Author     : Suharshana DsW
+*/
+
+
+.section-index {
+    padding: 70px 0;
+}
+
+@media only screen and (max-width : 480px) {
+    .section-index { padding: 60px 0; }
+    .section-index-h1 { font-size: 26px; }
+    .section-index-desk { font-size: 15px; margin-bottom: 50px; }
+}
+
+.section-index .product-row-full {
+    margin-bottom: 0;
+}
+
+.section-index--gray-2 {
+    background-color: #f0f7fa;
+}
+
+.section-products-carousel {
+    overflow: hidden;
+}
+
+.section-products-carousel .h1 {
+    margin-bottom: 30px;
+}
+
+.section-products-carousel .owl-carousel-custom {
+    width: calc(100% + 20px);
+    height: 476px;
+    padding: 0;
+    margin: 0 -10px;
+    font-size: 0;
+}
+
+.section-products-carousel .owl-item {
+    text-align: center;
+}
+
+.section-products-carousel .owl-controls {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: auto;
+}
+
+.section-products-carousel .owl-pagination {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    padding: 0 33px;
+}
+
+.section-products-carousel .owl-buttons {
+    top: 6px;
+}
+
+.section-products-carousel .owl-next {
+    right: 3px;
+}
+
+.section-products-carousel .owl-prev {
+    left: 3px;
+}
+
+.section-default .section-products-carousel {
+    padding-bottom: 30px;
+}
+
+.catalog-item-page .section-products-carousel {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background-color: #f6f6f6;
+}
+
+.section-index .product-row-full {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 991px) {
+    .section-products-carousel .owl-pagination { display: none; }
+    .section-products-carousel .owl-controls { width: 70px; }
+}
+@media only screen and (max-width: 400px) {
+    .section-products-carousel .h1 { font-size: 22px; }
+}
+
+
+
+
+.product {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 20px);
+    margin: 10px;
+    font-size: 14px;
+    border: 2px solid #f3f6f8;
+    background-color: #fff;
+    -webkit-transition: transform .35s, box-shadow .3s;
+    -moz-transition: transform .35s, box-shadow .3s;
+    transition: transform .35s, box-shadow .3s;
+}
+.product:hover {
+    /*                position: relative;
+                    display: inline-block;
+                    vertical-align: top;
+                    width: calc(100% - 20px);
+                    margin: 1px;
+                    font-size: 14px;
+                    border-bottom: 3px solid #b8d7e4;
+                    background-color: #fff;
+                    -webkit-transition: transform .35s, box-shadow .3s;
+                    -moz-transition: transform .35s, box-shadow .3s;
+                    transition: transform .35s, box-shadow .3s;*/
+}
+
+
+
+.product__top {
+    position: relative;
+    height: 100%;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+}
+
+.product--list .product__top {
+    position: static;
+    float: left;
+    width: 200px;
+    height: 100%;
+}
+
+@media only screen and (max-width : 991px) {
+    .product-row-full .product { width: calc(50% - 20px); }
+    .product--list .product__top { width: 160px; }
+    .product--list .product__info { margin-left: 160px; }
+}
+
+.product__badge {
+    position: absolute;
+    top: 20px;
+    left: -1px;
+    z-index: 1;
+    padding: 3px 20px;
+    padding-top: 3px;
+    padding-top: 5px;
+    max-width: 70%;
+    background-color: #c52c50;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.product__badge--green {
+    background-color: #2cc557;
+}
+
+.product__img {
+    width: 100%;
+    height: 100%;
+    /*                line-height: 312px;*/
+    text-align: center;
+}
+
+.product__img-link {
+    display: block;
+    height: 100%;
+}
+
+.product__img img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.product--list .product__img {
+    line-height: 196px;
+}
+
+.product__info {
+    padding: 15px 20px 20px 20px;
+    background-color: #fff;
+    overflow: hidden;
+    text-align: left;
+}
+
+.product--list .product__info {
+    margin-left: 200px;
+    height: 100%;
+    padding: 20px;
+}
+
+@media only screen and (max-width : 991px) {
+    .product-row-full .product { width: calc(50% - 20px); }
+    .product--list .product__top { width: 160px; }
+    .product--list .product__info { margin-left: 160px; }
+}
+
+.product__info-top {
+    margin-bottom: 20px;
+}
+
+.product--list .product__info-top {
+    float: left;
+    width: 63%;
+    height: 100%;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+@media only screen and (min-width : 1199px) {
+    .product-row-full .product--list .product__info-top { width: 75%; }
+}
+@media only screen and (max-width : 1199px) and (min-width: 991px) {
+    .product-row-full .product--list .product__info-top { width: 68%; }
+}
+
+.product__category{
+    font-size: 14px;
+    text-align: justify;
+    line-height: 16px;
+    color: #565353;
+
+}
+
+.product__name, 
+.product__link {
+    display: block;
+    font-size: 20px;
+    line-height: 18px;
+    color: #575757;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-decoration: none !important;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+.product__link {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product__link:hover {
+    color: #bf8d5c;
+}
+
+
+.product__desc {
+    display: none;
+    margin-top: 13px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #434343;
+}
+
+.product__desc p {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+.product--list .product__desc {
+    display: block;
+}
+
+.product--list .product__desc {
+    height: 64%;
+    overflow: auto;
+}
+
+.product__info-bottom {
+    overflow: hidden;
+}
+
+.product--list .product__info-bottom {
+    float: left;
+    padding-left: 10px;
+}
+
+.product__fl-l {
+    /*                float: left;
+                    width: 50%;
+                    text-align: left;*/
+}
+
+.product--list .product__fl-l,
+.product--list .product__fl-r {
+    float: none;
+    width: auto;
+}
+
+.product--list .product__fl-l {
+    margin-bottom: 25px;
+    height: 48px;
+}
+.product__fl-r {
+    text-align: center;
+}
+
+.product--list .product__fl-l,
+.product--list .product__fl-r {
+    float: none;
+    width: auto;
+}
+
+.product__add-cart {
+    margin-top: 2px;
+}
+
+.product--list .product__add-cart {
+    margin-top: 0;
+}
+
+.shop-single-add-cart .add-cart__link:before { right: 30px; }
+.shop-single-add-cart .add-cart__link:after { right: 23px; }
+
+
+.add-cart__link {
+    position: relative;
+    z-index: 10;
+    display: block;
+    width: 90px;
+    height: 40px;
+    padding-top: 9px;
+    padding-left: 20px;
+    text-align: left;
+    border: 1px solid #b2c0c9;
+    border-radius: 19px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #b2c0c9;
+    text-transform: uppercase;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+.add-cart__link:hover {
+    text-decoration: none;
+    border-color: #395188;
+    color: #395188;
+}
+
+.add-cart.active .add-cart__link {
+    border-color: transparent;
+    color: #B2C0C9;
+}
+
+
+.add-cart__link:before {
+    position: absolute;
+    top: 23%;
+    right: 10%;
+    z-index: 9;
+    display: block;
+    width: 24px;
+    height: 24px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    content: "\e910";
+    font: 21px 'font-caplus';
+    color: #B2C0C9;
+}
+
+.add-cart__link:hover:before {
+    color: #395188;
+}
+
+.index-package-btn{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 9px 21px;
+    display: inline-block;
+    background-color: #1e1e1e;
+    margin-top: 15px;
+}
+
+.index-package-btn:hover{
+    color: #bf8d5c;
+}
+.view-btn-container{
+   text-align: left;
+}
+
+.panel{
+    margin-top: 20px;
+}
