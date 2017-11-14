@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$ABOUT_US = new Page(1);
+?>
 <html>
 
     <head>
@@ -46,26 +50,25 @@
                             <div class="col-md-12">
                                 <div class="relax-history">
                                     <h3>Hikka Beach Tours - Since 1993</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip .</p>
-                                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
-<!--                                    <ul>
-                                        <li>
-                                            <h5>200</h5>
-                                            <span>Rooms</span>
-                                        </li>
-                                        <li>
-                                            <h5>75</h5>
-                                            <span>Staffs</span>
-                                        </li>
-                                        <li>
-                                            <h5>8</h5>
-                                            <span>Pools</span>
-                                        </li>
-                                        <li>
-                                            <h5>5</h5>
-                                            <span>Restaurant</span>
-                                        </li>
-                                    </ul>-->
+                                    <?php echo $ABOUT_US->description; ?>
+                                    <!--                                    <ul>
+                                                                            <li>
+                                                                                <h5>200</h5>
+                                                                                <span>Rooms</span>
+                                                                            </li>
+                                                                            <li>
+                                                                                <h5>75</h5>
+                                                                                <span>Staffs</span>
+                                                                            </li>
+                                                                            <li>
+                                                                                <h5>8</h5>
+                                                                                <span>Pools</span>
+                                                                            </li>
+                                                                            <li>
+                                                                                <h5>5</h5>
+                                                                                <span>Restaurant</span>
+                                                                            </li>
+                                                                        </ul>-->
                                 </div><!--relax-history end-->
                             </div>
                         </div>
