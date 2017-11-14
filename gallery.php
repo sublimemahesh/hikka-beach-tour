@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$GALLERY = AlbumPhoto::getAlbumPhotosById(6);
+?>
 <html>
 
     <!-- Mirrored from creativethemes.us/relax/gallery2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Nov 2017 09:26:46 GMT -->
@@ -41,227 +45,35 @@
                 <div class="block">
                     <div class="container-fluid">
                         <div class="gallery2-projects">
-
                             <div class="row">
                                 <div class="masonary2 no-border">
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth rooms">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery21.jpg" alt="">
-                                                <figcaption>
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery4.jpg" data-group="set1" href="images/resources/gallery4.jpg" title="">
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><i class="fa fa-compress"></i></li>
-                                                    </ul>
-                                                    </a>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery4.jpg" data-group="set1" href="images/resources/gallery4.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth kitchen">
-                                        <div class="gallery-style grid-item2 rooms">
-                                            <figure>
-                                                <img src="images/resources/gallery22.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery22.jpg" data-group="set1" href="images/resources/gallery22.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth dinning">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery23.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery23.jpg" data-group="set1" href="images/resources/gallery23.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth bath">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery24.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery24.jpg" data-group="set1" href="images/resources/gallery24.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth swimming">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery25.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery25.jpg" data-group="set1" href="images/resources/gallery25.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth kitchen">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery26.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery26.jpg" data-group="set1" href="images/resources/gallery26.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth rooms">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery27.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery27.jpg" data-group="set1" href="images/resources/gallery27.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth bath">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery28.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery28.jpg" data-group="set1" href="images/resources/gallery28.jpg"><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth dinning">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery29.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery29.jpg" data-group="set1" href="images/resources/gallery29.jpg"><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth swimming">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery30.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery30.jpg" data-group="set1" href="images/resources/gallery30.jpg"><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth rooms">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery31.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery31.jpg" data-group="set1" href="images/resources/gallery31.jpg"><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-xs-6 full-wdth Kitchen">
-                                        <div class="gallery-style grid-item2">
-                                            <figure>
-                                                <img src="images/resources/gallery32.jpg" alt="">
-                                                <figcaption>
-                                                    <h5>Bed room</h5>
-                                                    <ul>
-                                                        <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                        <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                    </ul>
-                                                </figcaption>
-                                                <div class="popup-icon">
-                                                    <a class="html5lightbox" data-thumbnail="images/resources/gallery32.jpg" data-group="set1" href="images/resources/gallery32.jpg" title=""><i class="fa fa-compress"></i></a>
-                                                </div>
-                                            </figure>
-                                        </div><!--gallery-style end-->
-                                    </div>
-                                </div><!--masonary end-->
-                            </div>
+                                    <?php
+                                    foreach ($GALLERY as $gallery) {
+                                        ?>
+
+                                        <div class="col-md-3 col-sm-6 col-xs-6 full-wdth rooms">
+                                            <div class="gallery-style grid-item2">
+                                                <figure>
+                                                    <img src="upload/photo-album/gallery/<?php echo $gallery['image_name'];?>" alt="">
+                                                    <figcaption>
+                                                        <a class="html5lightbox" data-thumbnail="upload/photo-album/gallery/thumb/<?php echo $gallery['image_name'];?>" data-group="set1" href="upload/photo-album/gallery/<?php echo $gallery['image_name'];?>" title="">
+                                                            <h5><?php echo $gallery['caption'];?></h5>
+                                                            <ul>
+                                                                <li><i class="fa fa-compress"></i></li>
+                                                            </ul>
+                                                        </a>
+                                                    </figcaption>
+                                                    <div class="popup-icon">
+                                                        <a class="html5lightbox" data-thumbnail="upload/photo-album/gallery/thumb/<?php echo $gallery['image_name'];?>" data-group="set1" href="upload/photo-album/gallery/<?php echo $gallery['image_name'];?>" title=""><i class="fa fa-compress"></i></a>
+                                                    </div>
+                                                </figure>
+                                            </div><!--gallery-style end-->
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div><!--masonary end-->
                         </div><!--gallery2-projects end-->
                     </div>
                 </div>
