@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$PROPERTIES = Room::all();
+?>
 <html>
 
     <!-- Mirrored from creativethemes.us/relax/room-list-view2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Nov 2017 09:25:52 GMT -->
@@ -40,248 +44,43 @@
                 <div class="pd90 remove-mrg-btm">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <a href="#">
-                                                    <figure>
-                                                        <img src="images/resources/room-list1.jpg" alt="">
-                                                        <figcaption>
-                                                         <i class="fa fa-link"></i>
-                                                        </figcaption>
-                                                    </figure>
-                                                    </a>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="view-properties.php">Single Room</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="view-properties.php" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <figure>
-                                                        <img src="images/resources/room-list2.jpg" alt="">
-                                                        <figcaption>
-                                                            <a href="#" title=""><i class="fa fa-link"></i></a>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="#">Double Room</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                        <li><span><i class="fa fa-television"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="#" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
+                            <?php
+                            foreach ($PROPERTIES as $property) {
+                                ?>
+                                <div class="col-md-6">
+                                    <div class="room-listing style2">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="room-details">
+                                                    <div class="room-img">
+                                                        <a href="view-properties.php?id=<?php echo $property['id']; ?>">
+                                                            <figure>
+                                                                <img src="upload/room/<?php echo $property['image_name']; ?>" alt="">
+                                                                <figcaption>
+                                                                    <i class="fa fa-link"></i>
+                                                                </figcaption>
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <div class="room-info style2">
+                                                        <h3><a href="view-properties.php"><?php echo $property['title']; ?></a></h3>
+                                                        <p class="text-justify"><?php echo substr($property['short_description'], 0, 100) . '...'; ?></p>
+                                                        <ul class="feature-dt">
+                                                            <li><span><i class="fa fa-cutlery"></i></span></li>
+                                                            <li><span><i class="fa fa-coffee"></i></span></li>
+                                                        </ul>
+                                                        <div class="room-price">
+                                                            <h5> <a href="view-properties.php?id=<?php echo $property['id']; ?>" title="" class="">View More</a></h5>
+                                                        </div><!--room-price end-->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <figure>
-                                                        <img src="images/resources/room-list3.jpg" alt="">
-                                                        <figcaption>
-                                                            <a href="#" title=""><i class="fa fa-link"></i></a>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="#">Delux Room</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                        <li><span><i class="fa fa-television"></i></span></li>
-                                                        <li><span><i class="fa fa-wifi"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="#" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <figure>
-                                                        <img src="images/resources/room-list4.jpg" alt="">
-                                                        <figcaption>
-                                                            <a href="#" title=""><i class="fa fa-link"></i></a>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="#">Honeymoon</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                        <li><span><i class="fa fa-television"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="#" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <figure>
-                                                        <img src="images/resources/room-list5.jpg" alt="">
-                                                        <figcaption>
-                                                            <a href="#" title=""><i class="fa fa-link"></i></a>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="#">Family Room</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                        <li><span><i class="fa fa-television"></i></span></li>
-                                                        <li><span><i class="fa fa-wifi"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="#" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <figure>
-                                                        <img src="images/resources/room-list6.jpg" alt="">
-                                                        <figcaption>
-                                                            <a href="#" title=""><i class="fa fa-link"></i></a>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="#">Kids Room</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                        <li><span><i class="fa fa-television"></i></span></li>
-                                                        <li><span><i class="fa fa-wifi"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="#" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <figure>
-                                                        <img src="images/resources/room-list7.jpg" alt="">
-                                                        <figcaption>
-                                                            <a href="#" title=""><i class="fa fa-link"></i></a>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="#">Single Room</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="#" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="room-listing style2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="room-details">
-                                                <div class="room-img">
-                                                    <figure>
-                                                        <img src="images/resources/room-list8.jpg" alt="">
-                                                        <figcaption>
-                                                            <a href="#" title=""><i class="fa fa-link"></i>
-                                                        </figcaption>
-                                                    </figure>
-                                                </div>
-                                                <div class="room-info style2">
-                                                    <h3><a href="#">Single Room</a></h3>
-                                                    <p>Lorem ipsum dolor sit amet, nonummy sed consec adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                                    <ul class="feature-dt">
-                                                        <li><span><i class="fa fa-cutlery"></i></span></li>
-                                                        <li><span><i class="fa fa-coffee"></i></span></li>
-                                                    </ul>
-                                                    <div class="room-price">
-                                                        <h5> <a href="#" title="" class="">View More</a></h5>
-                                                    </div><!--room-price end-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--room-listing end-->
-                            </div>
+                                    </div><!--room-listing end-->
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
 
                     </div>
