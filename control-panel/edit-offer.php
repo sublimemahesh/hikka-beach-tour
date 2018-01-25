@@ -46,85 +46,75 @@ $OFFER = new Offer($id);
                                 <h2>
                                     Edit Offer
                                 </h2>
+                                <ul class="header-dropdown">
+                                    <li class="">
+                                        <a href="manage-offer.php">
+                                            <i class="material-icons">list</i> 
+                                        </a>
+                                    </li>
+                                </ul>
 
                             </div>
-                            <div class="body row">
+                            <div class="body">
                                 <form class="form-horizontal" method="post" action="post-and-get/offer.php" enctype="multipart/form-data"> 
 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="Title">Title</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="title" class="form-control"  value="<?php echo $OFFER->title; ?>"  name="title"  required="TRUE">
-                                                </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="title" class="form-control"  value="<?php echo $OFFER->title; ?>"  name="title"  required="TRUE">
+                                                <label class="form-label">Title</label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" value="<?php echo $OFFER->image_name; ?>"  name="image">
-                                                    <img src="../upload/offer/<?php echo $OFFER->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
-                                                </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="price" class="form-control"  value="<?php echo $OFFER->price; ?>"  name="price"  required="TRUE">
+                                                <label class="form-label">Price</label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="short_description">Short Description</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="short_description" class="form-control" value="<?php echo $OFFER->short_description; ?>"  name="short_description">
-                                                </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="discount" class="form-control"  value="<?php echo $OFFER->discount; ?>"  name="discount"  required="TRUE">
+                                                <label class="form-label">Discount</label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="description">Description</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="description" class="form-control" value="<?php echo $OFFER->description; ?>"  name="description">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="price">Price</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="price" class="form-control" value="<?php echo $OFFER->price; ?>"  name="price">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="discount">Discount</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="discount" class="form-control" value="<?php echo $OFFER->discount; ?>"  name="discount">
-                                                </div>
+                                    </div>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" value="<?php echo $OFFER->image_name; ?>"  name="image">
+                                                <img src="../upload/offer/<?php echo $OFFER->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
                                             </div>
                                         </div>
                                     </div>
 
 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-
-                                            <input type="hidden" id="oldImageName" value="<?php echo $OFFER->image_name; ?>" name="oldImageName"/>
-                                            <input type="hidden" id="id" value="<?php echo $OFFER->id; ?>" name="id"/>
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="short_description" class="form-control" value="<?php echo $OFFER->short_description; ?>"  name="short_description">
+                                                <label class="form-label">Short Description</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="description">Description</label>
+                                        <div class="form-line">
+                                            <textarea id="description" name="description" class="form-control" rows="5"><?php echo $OFFER->description; ?></textarea> 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="oldImageName" value="<?php echo $OFFER->image_name; ?>" name="oldImageName"/>
+                                        <input type="hidden" id="id" value="<?php echo $OFFER->id; ?>" name="id"/>
 <!--                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>-->
-                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
-                                        </div>
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
                                     </div>
+                                    <div class="row clearfix">  </div>
+                                    <hr/>
                                 </form>
                             </div>
                         </div>

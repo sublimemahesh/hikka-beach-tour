@@ -1,7 +1,6 @@
 ﻿<?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-
 ?> 
 ﻿<!DOCTYPE html>
 <html>
@@ -46,53 +45,34 @@ include_once(dirname(__FILE__) . '/auth.php');
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Price</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Price</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $TOUR_PACKAGE = new TourPackage(NULL);
-                                            foreach ($TOUR_PACKAGE->all() as $key => $tour) {
+                                    <div class="row clearfix">
+                                        <?php
+                                        $TOUR_PACKAGE = TourPackage::all();
+                                        if (count($TOUR_PACKAGE) > 0) {
+                                            foreach ($TOUR_PACKAGE as $key => $tour_package) {
                                                 ?>
-                                                <tr id="row_<?php echo $tour['id']; ?>">
-                                                    <td><?php echo $tour['queue']; ?></td> 
-                                                    <td><?php echo $tour['title']; ?></td> 
-                                                    <td><?php echo $tour['price']; ?></td> 
-                                                    <td><?php echo $tour['short_description']; ?></td> 
-                                                    <td><?php echo $tour['description']; ?></td> 
-                                                    <td> 
-                                                        <a href="edit-tour-package.php?id=<?php echo $tour['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-tour-package btn btn-sm btn-danger" data-id="<?php echo $tour['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a> |   
-                                                        <a href="view-tour-date.php?id=<?php echo $tour['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-time"></i></a> 
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $tour_package['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/tour-package/<?php echo $tour_package['image_name']; ?>" class="img-responsive ">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $tour_package['title']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-tour-package" data-id="<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-tour-package.php?id=<?php echo $tour_package['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-tour-package.php?id=<?php echo $tour_package['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <a href="view-tour-date.php?id=<?php echo $tour_package['id']; ?>">  <button class="glyphicon glyphicon-time arrange-btn"></button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No packages in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>

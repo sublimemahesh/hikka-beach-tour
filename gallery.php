@@ -8,10 +8,10 @@ $GALLERY = AlbumPhoto::getAlbumPhotosById(6);
     <!-- Mirrored from creativethemes.us/relax/gallery2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Nov 2017 09:26:46 GMT -->
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>Hikka Beach Tours | Hikkaduwa beauty</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="hikkaduwa beauty, surfing hikkaduwa, hikkaduwa images,hikkaduwa surfing images,surf images, surfing srilanka, hikka surf, surf hikka, hikkaduwa images ,srilanka beauty " />
         <!-- Linking Bootstrap css file -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <!-- Linking Main Css file -->
@@ -56,7 +56,7 @@ $GALLERY = AlbumPhoto::getAlbumPhotosById(6);
                                                 <figure>
                                                     <img src="upload/photo-album/gallery/<?php echo $gallery['image_name'];?>" alt="">
                                                     <figcaption>
-                                                        <a class="html5lightbox" data-thumbnail="upload/photo-album/gallery/thumb/<?php echo $gallery['image_name'];?>" data-group="set1" href="upload/photo-album/gallery/<?php echo $gallery['image_name'];?>" title="">
+                                                        <a class="html5lightbox" data-thumbnail="upload/photo-album/gallery/<?php echo $gallery['image_name'];?>" data-group="set1" href="upload/photo-album/gallery/<?php echo $gallery['image_name'];?>" title="">
                                                             <h5><?php echo $gallery['caption'];?></h5>
                                                             <ul>
                                                                 <li><i class="fa fa-compress"></i></li>
@@ -90,9 +90,7 @@ $GALLERY = AlbumPhoto::getAlbumPhotosById(6);
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/isotope.js"></script>
         <script type="text/javascript" src="js/html5lightbox.js"></script>
-        <!-- Custom Js file -->
-        <script type="text/javascript" src="js/script.js"></script>
-
+     
     </body>
 
 

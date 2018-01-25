@@ -7,10 +7,10 @@ $TOUR_PACKAGES = TourPackage::all();
 
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>Holiday Tours in Sri Lanka | Hikkaduwa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="description" content="Hikka beach tours is a perfect and superb platform to arrange your dreamed tours with an adventurous, luxurious, serene and exciting moments!" />
+        <meta name="keywords" content="Hikka Beach Tours,travel in srilanka,hikkaduwa beach,beach tours,hikkaduwa tours,tour in hikkaduwa,hikkaduwa surfing,tour sites,travel sri lanka,sri lanka, hikkaduwa ,hikkaduwa tour packages,tours in srilanka, hikkaduwa beauty" />
         <!-- Linking Bootstrap css file -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <!-- Linking Main Css file -->

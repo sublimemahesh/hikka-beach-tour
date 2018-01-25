@@ -76,7 +76,7 @@ $PAGES = new Page(NULL);
                                                     <td><?php echo $page['id']; ?></td> 
                                                     <td><?php echo $page['title']; ?></td> 
                                                   
-                                                    <td><?php echo $page['description']; ?></td> 
+                                                    <td><?php echo substr($page['description'],0,30); ?></td> 
                                                     <td> 
                                                         <a href="edit-pages.php?id=<?php echo $page['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
                                                         <a href="#" class="delete-pages btn btn-sm btn-danger" data-id="<?php echo $page['id']; ?>">

@@ -54,36 +54,29 @@ $ROOM = new Room($id)
                             </div>
                             <div class="body">
                                 <form class="form-horizontal"  method="post" action="post-and-get/room-photo.php" enctype="multipart/form-data"> 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" name="image" required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="short_description">Caption</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="caption" class="form-control" placeholder="Enter Image Caption" autocomplete="off" name="caption" required="true">
-                                                </div>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" name="image"  required="true">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="hidden" id="id" value="<?php echo $ROOM->id; ?>" name="id"/>
-                                            <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="caption" class="form-control" autocomplete="off" name="caption" required="true">
+                                                <label class="form-label">Caption</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <hr/>
+                                    <div class="col-md-12"> 
+                                        <input type="hidden" id="id" value="<?php echo $ROOM->id; ?>" name="id"/>
+                                        <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
+                                    </div>
+                                </form>
+                                <div class="row">
+                                </div>
+                                <hr/>
                                 </form>
 
                                 <div class="row clearfix">
@@ -94,7 +87,7 @@ $ROOM = new Room($id)
                                             ?>
                                             <div class="col-md-3"  id="div<?php echo $room_photo['id']; ?>">
                                                 <div class="photo-img-container">
-                                                    <img src="../upload/room/gallery/<?php echo $room_photo['image_name']; ?>" class="img-responsive ">
+                                                    <img src="../upload/room/gallery/thumb/<?php echo $room_photo['image_name']; ?>" class="img-responsive ">
                                                 </div>
                                                 <div class="img-caption">
                                                     <p class="maxlinetitle"><?php echo $room_photo['caption']; ?></p>

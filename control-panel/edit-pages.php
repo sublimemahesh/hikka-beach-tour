@@ -83,7 +83,7 @@ $PAGES = new Page($id);
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" id="description" class="form-control" value="<?php echo $PAGES->description; ?>"  name="description">
+                                                    <textarea id="description" name="description" class="form-control" rows="5"><?php echo $PAGES->description; ?></textarea> 
                                                 </div>
                                             </div>
                                         </div>

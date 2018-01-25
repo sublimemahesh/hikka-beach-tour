@@ -457,9 +457,12 @@ header.abs {
     background-color: #fff;
 }
 .logo {
+    /*    float: left;
+        width: 15%;
+        padding-top: 25px;*/
     float: left;
-    width: 15%;
-    padding-top: 25px;
+    width: 14%;
+    margin-top: 14px;
 }
 .logo img {
     max-width: 100%;
@@ -469,16 +472,16 @@ header.abs {
     width: 85%;
 }
 nav {
-    /*	float: left;
-            width: 94%;
-            text-align: right;*/
+    float: left;
+    width: 94%;
+    text-align: right;
     width: 100%;
     text-align: right;
 }
 nav  ul  li {
-    /*	display: inline-block;
-            padding: 40px 18px;
-            position: relative;*/
+    display: inline-block;
+    padding: 40px 18px;
+    position: relative;
     display: inline-block;
     padding: 41px 15px;
     position: relative;
@@ -2027,7 +2030,7 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 30px 50px;
+    padding: 20px 40px;
     background-color: #ffffff;
     opacity: 0.90;
 }
@@ -2206,8 +2209,17 @@ footer {
 }
 .room-finding.style2 .searching {
     font-weight: 400;
-    font-size: 14px;
-    padding: 13px 20px;
+    font-size: 12px;
+    padding: 13px 15px;
+
+}
+
+.room-finding.style2 .searching:hover {
+    font-weight: 400;
+    font-size: 12px;
+    padding: 13px 15px;
+    color: #bf8d5c;
+
 }
 .room-finding.style2 .search-room form div select {
     background-color: rgba(255,255,255,0.10);
@@ -2506,8 +2518,11 @@ footer {
     height: 116px;
     float: left;
     margin-right: 15px;
-    margin-bottom: 15px;
+    /*    margin-bottom: 15px;*/
 }
+
+
+
 .client-picc img {
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
@@ -3645,7 +3660,7 @@ footer {
     box-shadow: none;
 }
 header.abs.style5 {
-    position: static;
+    position: relative;
 }
 .tp-bullet-title {
     display: none !important;
@@ -5944,7 +5959,7 @@ footer.style2 .credit {
     padding-bottom: 20px;
 }
 .ev_des p {
-    margin-bottom: 55px;
+    margin-bottom: 20px;
 }
 .event-rem-days {
     float: left;
@@ -7441,6 +7456,7 @@ footer.style2 .credit {
     font-weight: 500;
     margin-top: 5px;
     margin-bottom: 5px;
+    padding-bottom: 11px;
 
 }
 
@@ -7449,4 +7465,24 @@ footer.style2 .credit {
     border: 1px solid #bdbab900;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+@media(max-width:739px){
+    .btn-container{
+        text-align: center
+    }
+}
+
+@media(min-width:740px){
+    .btn-container{
+        margin-top: -100px;
+        text-align: right;
+        position: relative;
+        z-index: 40;
+        padding-right: 50px;
+    }
+}
+
+.padding-bottom{
+    margin-bottom: 50px;
 }

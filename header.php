@@ -17,11 +17,11 @@
                     <li><a href="#" title=""><i class="fa fa-dribbble"></i></a></li>
                 </ul>
                 <ul class="language-links">
-                    <li class="dropdown"><a href="#" title="" class="dropdown-toggle" data-toggle="dropdown"><img src="images/eng.png">English <i class="fa fa-caret-down"></i></a>
+                    <li class="dropdown"><a href="#" title="" class="dropdown-toggle" data-toggle="dropdown"><img src="images/eng.png" alt="img">English <i class="fa fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" title=""><img src="images/germany.jpg" alt="" /> Germany </a></li>
-                            <li><a href="#" title=""><img src="images/australia.jpg" alt="" /> Australia</a> </li>
-                            <li><a href="#" title=""><img src="images/america.jpg" alt="" /> America</a> </li>
+                            <li><a href="#" title=""><img src="images/germany.jpg" alt="img" /> Germany </a></li>
+                            <li><a href="#" title=""><img src="images/australia.jpg" alt="img" /> Australia</a> </li>
+                            <li><a href="#" title=""><img src="images/america.jpg" alt="img" /> America</a> </li>
                         </ul>
                     </li>
                 </ul>
@@ -32,7 +32,7 @@
         <div class="container">
             <div class="hd">
                 <div class="logo">
-                    <a href="#" title="">
+                    <a href="/." title="">
                         <img src="images/logo.png" alt="" />
                     </a>
                 </div><!--logo end-->
@@ -54,16 +54,19 @@
                             <li class="menu-item-has-children"><a href="tour-packages.php" title="">Tour Packages</a>
 
                             </li>
-                            <li class="menu-item-has-children"><a href="excursion.php" title="">Excursions</a>
+                            <li class="menu-item-has-children"><a href="activities.php" title="">Activities</a>
 
                             </li>
-                            <li><a href="services.php" title="">Services</a></li>
+                            <li class="menu-item-has-children"><a href="attractions.php" title="">Excursions</a>
+
+                            </li>
                             <li class="menu-item-has-children"><a href="properties.php" title="">Properties</a>
                             </li>
                             <li class="menu-item-has-children"><a href="booking.php" title="">Booking</a>
                             </li>
                             <li class="menu-item-has-children"><a href="gallery.php" title="">Gallery</a>
                             </li>
+
                             <li>
                                 <a href="contact-us.php" title="">Contact Us</a>
                             </li>

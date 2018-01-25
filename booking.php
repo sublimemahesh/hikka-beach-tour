@@ -1,12 +1,49 @@
+
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+
+$adate = '';
+$ddate = '';
+$adults = '';
+$child = '';
+$TxtTourPackage = '';
+
+
+
+if (isset($_POST['txtAdate'])) {
+    $adate = $_POST['txtAdate'];
+}
+
+if (isset($_POST['txtDdate'])) {
+    $ddate = $_POST['txtDdate'];
+}
+
+if (isset($_POST['txtAdults'])) {
+    $adults = $_POST['txtAdults'];
+}
+
+if (isset($_POST['txtChild'])) {
+    $child = $_POST['txtChild'];
+}
+
+if (isset($_POST['txtTourPackage'])) {
+    $TxtTourPackage = $_POST['txtTourPackage'];
+}
+
+if (isset($_POST['txtTourPackage'])) {
+    $TxtTourPackage = $_POST['txtTourPackage'];
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>Hikka Beach Tours | Hikkaduwa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="description" content="Hikka beach tours is a perfect and superb platform to arrange your dreamed tours with an adventurous, luxurious, serene and exciting moments!">
+        <meta name="keywords" content="Hikka Beach Tours, tour guides in hikkaduwa, tourist guide hikkaduwa, tour operators in hikkaduwa, tour company in hikkaduwa, hikkaduwa, travel to hikkaduwa, hikkaduwa tourism,hikkaduwa tour,travel to hikkaduwa,visit hikkaduwa,visit hikkaduwa holidays,trip to hikkaduwa,tourist in hikkaduwa,hikkaduwa travel and tours,lanka holidays,tours in galle,travel and tours,about galle, travel sri lanka,sri lanka,sri lanka tourism,sri lanka tour,travel to sri lanka,visit sri lanka,visit sri lanka holidays,trip to srilanka,tourist in sri lanka,sri lanka travel and tours,lanka holidays,tours in sri lanka,travel and tours,about sri lanka,travel websites,srilankan,srilanka" />
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <!-- Linking Main Css file -->
         <link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -16,9 +53,9 @@
         <link rel="stylesheet" type="text/css" href="css/color.css">
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
         <link href="css/custom.css" rel="stylesheet" type="text/css"/>
-        <link href="booking-form/style.css" rel="stylesheet" type="text/css"/>
         <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="booking-form/style.css" rel="stylesheet" type="text/css"/>
         <!-- Linking Bootstrap css file -->
 
     </head>
@@ -48,18 +85,19 @@
                         <div class="panel-body">
                             <div class="wrapper-inner">
                                 <div class="row">
+
                                     <div class="contact-form " style="padding-bottom: 20px">
                                         <div class="row form-group">
                                             <div class="col-xs-12 col-sm-6">
                                                 <label>Your Name</label>
                                                 <span id="star">*</span>
-                                                <input type="text" name="txtFullName" id="txtFullName" class="form-control input-validater" value="">
-                                                <span id="spanFullName" ></span>
+                                                <input type="text" name="txtFullName" id="txtFullName" class="form-control input-validater">
+                                                <span id="spanFullName"></span>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
                                                 <label>Your Email</label>
                                                 <span id="star">*</span>
-                                                <input type="text" name="txtEmail" id="txtEmail" class="form-control input-validater" value="">
+                                                <input type="text" name="txtEmail" id="txtEmail" class="form-control input-validater">
                                                 <span id="spanEmail" ></span>
                                             </div>
                                         </div>
@@ -79,45 +117,62 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-xs-12 col-sm-6">
-                                                <label>Departure Date</label>
-                                                <span id="star">*</span>
-                                                <input type="text" name="txtDdate" id="txtDdate" class="form-control input-validater datepicker" value="" required>
-                                                <span id="spanDeparture"></span>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-6">
                                                 <label>Arrival Date</label>
                                                 <span id="star">*</span>
-                                                <input type="text" name="txtAdate" id="txtAdate" class="form-control input-validater datepicker" value="" required>
+                                                <input type="text" name="txtAdate" id="txtAdate" value="<?php echo $adate; ?>" class="form-control input-validater datepicker">
 
-                                                <span id="spanArrival"></span>
+                                                <span id="spanAdate"></span>
                                             </div>
+
+                                            <div class="col-xs-12 col-sm-6">
+                                                <label>Departure Date</label>
+                                                <span id="star">*</span>
+                                                <input type="text" name="txtDdate" id="txtDdate" value="<?php echo $ddate; ?>" class="form-control input-validater datepicker">
+                                                <span id="spanDdate"></span>
+                                            </div>
+
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-xs-12 col-sm-6">
                                                 <label>Number of Adults</label>
                                                 <span id="star">*</span>
 
-                                                <input type="number" name="txtAdults" id="txtAdults" class="form-control" value="">
+                                                <input type="number" name="txtAdult" value="<?php echo $adults; ?>" id="txtAdult" min="0" class="form-control">
 
-                                                <span id="spanAdults" ></span>
+                                                <span id="spanAdult" ></span>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
                                                 <label>Number of Children</label>
                                                 <span id="star">*</span>
-
-                                                <input type="number" name="txtChild" id="txtChild" class="form-control" value="<?php echo $child; ?>">   
-
-                                                <span id="spanChild" ></span>
+                                                <input type="number" name="txtChildren" min="0" value="<?php echo $child; ?>" id="txtChildren" class="form-control">   
+                                                <span id="spanChildren" ></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tour Package</label>
                                             <span id="star">*</span>
-
-
                                             <select name="txtPackage" id="txtPackage" class="form-control">
                                                 <option> -- Please Select a Package -- </option>
 
+                                                <?php
+                                                if (count(TourPackage::all()) > 0) {
+                                                    foreach (TourPackage::all() as $key => $package) {
+                                                        if ($package['title'] == $TxtTourPackage) {
+                                                            ?>
+                                                            <option value="<?php echo $package['title']; ?>" selected><?php echo $package['title']; ?></option>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <option value="<?php echo $package['title']; ?>"><?php echo $package['title']; ?></option>
+                                                            <?php
+                                                        }
+                                                    }
+                                                } else {
+                                                    ?>
+                                                    <b style="padding-left: 15px;">No packages in the database.</b> 
+                                                    <?php
+                                                }
+                                                ?>
                                             </select>
                                             <span id="spanPackage" ></span>
                                         </div>
@@ -146,7 +201,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-8 text-right" style="margin-top: 20px">
-                                                    <button type="submit" id="btnSubmit" class="btn contact-send-msg">Send Your Inquiry</button>
+                                                    <button type="submit" id="btnSubmit" class="btn index-view-btn">Send Your Inquiry</button>
                                                 </div> 
                                             </div>
                                         </div> 
@@ -175,30 +230,24 @@
         <script type="text/javascript" src="js/html5lightbox.js"></script>
         <!-- Custom Js file -->
         <script type="text/javascript" src="js/script.js"></script>
-        <script src="booking-form/scripts.js" type="text/javascript"></script>
 
+        <script src="booking-form/scripts.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             var dateToday = new Date();
 
             $(function () {
-
                 $("[id=txtDdate]").datepicker({
-//                    dateFormat: 'dd-mm-yy',
-////                    minDate: dateToday
+                    dateFormat: 'dd-mm-yy',
+                    minDate: dateToday
                 }).val();
             });
-
-
             $(function () {
-
                 $("[id=txtAdate]").datepicker({
-//                    dateFormat: 'dd-mm-yy',
-//                    minDate: dateToday
+                    dateFormat: 'dd-mm-yy',
+                    minDate: dateToday
                 }).val();
             });
         </script>
-
     </body>
-
 </html>

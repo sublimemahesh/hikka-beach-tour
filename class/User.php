@@ -16,12 +16,13 @@ class User {
     public $authToken;
     public $lastLogin;
     public $username;
+    public $resetCode;
     private $password;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`name`,`email`,`createdAt`,`isActive`,`authToken`,`lastLogin`,`username` FROM `user` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`name`,`email`,`createdAt`,`isActive`,`authToken`,`lastLogin`,`username`,`resetcode` FROM `user` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -35,6 +36,7 @@ class User {
             $this->lastLogin = $result['lastLogin'];
             $this->username = $result['username'];
             $this->authToken = $result['authToken'];
+            $this->resetCode = $result['resetcode'];
 
             return $result;
         }
@@ -89,7 +91,7 @@ class User {
     public function checkOldPass($id, $password) {
 
         $enPass = md5($password);
-       
+
         $query = "SELECT `id` FROM `user` WHERE `id`= '" . $id . "' AND `password`= '" . $enPass . "'";
 
         $db = new Database();
@@ -114,7 +116,7 @@ class User {
         $db = new Database();
 
         $result = $db->readQuery($query);
-     
+
         if ($result) {
             return TRUE;
         } else {
@@ -232,6 +234,94 @@ class User {
         $db = new Database();
 
         if ($db->readQuery($query)) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function checkEmail($email) {
+
+        $query = "SELECT `email`,`username` FROM `user` WHERE `email`= '" . $email . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if (!$result) {
+            return FALSE;
+        } else {
+            return $result;
+        }
+    }
+
+    public function GenarateCode($email) {
+
+        $rand = rand(10000, 99999);
+
+        $query = "UPDATE  `user` SET "
+                . "`resetcode` ='" . $rand . "' "
+                . "WHERE `email` = '" . $email . "'";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function SelectForgetUser($email) {
+
+        if ($email) {
+
+            $query = "SELECT `email`,`username`,`resetcode` FROM `user` WHERE `email`= '" . $email . "'";
+
+            $db = new Database();
+
+            $result = mysql_fetch_array($db->readQuery($query));
+
+            $this->username = $result['username'];
+            $this->email = $result['email'];
+            $this->restCode = $result['resetcode'];
+
+            return $result;
+        }
+    }
+    
+     public function SelectResetCode($code) {
+
+      $query = "SELECT `id` FROM `user` WHERE `resetcode`= '" . $code . "'";
+
+        $db = new Database();
+
+        $result = mysql_fetch_array($db->readQuery($query));
+
+        if (!$result) {
+            return FALSE;
+        } else {
+
+            return TRUE;
+        }
+    }
+    
+    
+     public function updatePassword($password,$code) {
+  
+        $enPass = md5($password);
+
+        $query = "UPDATE  `user` SET "
+                . "`password` ='" . $enPass . "' "
+                . "WHERE `resetcode` = '" . $code . "'";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
             return TRUE;
         } else {
             return FALSE;

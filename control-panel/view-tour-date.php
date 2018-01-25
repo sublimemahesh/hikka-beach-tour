@@ -54,47 +54,40 @@ $TOUR_PACKAGE = new TourPackage($id)
                             </div>
                             <div class="body">
                                 <form class="form-horizontal"  method="post" action="post-and-get/tour-dates.php" enctype="multipart/form-data"> 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="short_description">Title</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="title" class="form-control" placeholder="Enter Tour Date Title" autocomplete="off" name="title" required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" name="image" required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="description">Description</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="description" class="form-control" name="description" >
-                                                </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="title" class="form-control" autocomplete="off" name="title" required="true">
+                                                <label class="form-label">Title</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="hidden" id="id" value="<?php echo $TOUR_PACKAGE->id; ?>" name="id"/>
-                                            <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </form>
 
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" name="image"  required="true">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="description">Description</label>
+                                        <div class="form-line">
+                                            <input type="text" id="description" class="form-control" name="description" >
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-12"> 
+                                        <input type="hidden" id="id" value="<?php echo $TOUR_PACKAGE->id; ?>" name="id"/>
+                                        <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
+                                    </div>
+
+                                </form>
+                                <div class="row">
+                                </div>
                                 <div class="row clearfix">
                                     <?php
                                     $TOUR_DATE = TourDate::getTourDatesById($id);
@@ -143,7 +136,7 @@ $TOUR_PACKAGE = new TourPackage($id)
         <script src="js/demo.js"></script>
         <script src="js/add-new-ad.js" type="text/javascript"></script>
 
-        
+
         <script src="plugins/sweetalert/sweetalert.min.js"></script>
         <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
         <script src="js/pages/ui/dialogs.js"></script>

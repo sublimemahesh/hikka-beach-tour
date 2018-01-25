@@ -406,3 +406,44 @@ and open the template in the editor.
 .panel{
     margin-top: 20px;
 }
+
+
+/*  slider style*/
+            .carousel-control-left, .carousel-control-right {
+                position:    absolute;
+                top:         50%;
+                font-size:   40px;
+                line-height: 40px;
+                left:        20px;
+                margin-top:  -20px;
+                color:       #fff;
+            }
+
+            .carousel-control-left:hover, .carousel-control-right:hover {
+                text-decoration: none;
+            }
+
+            .carousel-control-right {
+                left:  auto;
+                right: 20px;
+            }
+
+            .wrapper-tours-slider.arrow-black .tours-type-slider .owl-nav .owl-prev, .wrapper-tours-slider.arrow-black .tours-type-slider .owl-nav .owl-next {
+                color: #333;
+            }
+
+            .wrapper-tours-slider.arrow-black .owl-theme .owl-controls .owl-dot span {
+                border-color: #848484;
+            }
+
+            .wrapper-tours-slider.arrow-black .owl-controls .owl-dot.active span {
+                background: #848484;
+            }
+
+            @media (max-width: 767px) {
+
+                .carousel-control-left, .carousel-control-right {
+                    display: none !important;
+                }
+            }
+/*style>*/

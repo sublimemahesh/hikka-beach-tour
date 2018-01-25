@@ -2,11 +2,14 @@
 
 //----------------------Company Information---------------------
 
-$comany_name = "Time Travel";
-$website_name = "www.srilankantimetraveller.com";
-$comConNumber = "+94 716 600 666";
-$comEmail = "dinudhanusha@gmail.com";
-$from = 'info@timetravel.com';
+$comany_name = "Hikka Beach Tours";
+$website_name = "www.hikkabeachtours.com";
+$comConNumber = "(+94) 91 2 276780, (+94) 77 818 0333";
+$comEmail = "info@hikkabeachtours.com";
+$from = 'info@hikkabeachtours.com';
+//$comEmail = "dinudhanusha@gmail.com";
+
+
 
 //----------------------CAPTCHACODE---------------------
 session_start();

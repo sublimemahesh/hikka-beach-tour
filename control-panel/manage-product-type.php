@@ -3,7 +3,6 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $PRODUCT_TYPE = new ProductType(NULL);
-
 ?>
 ﻿<!DOCTYPE html>
 <html>
@@ -48,49 +47,34 @@ $PRODUCT_TYPE = new ProductType(NULL);
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $PRODUCT_TYPE = new ProductType(NULL);
-                                            foreach ($PRODUCT_TYPE->all() as $key => $product_type) {
+                                    <div class="row clearfix">
+                                        <?php
+                                        $PRODUCT_TYPE = ProductType::all();
+                                        if (count($PRODUCT_TYPE) > 0) {
+                                            foreach ($PRODUCT_TYPE as $key => $product) {
                                                 ?>
-                                                <tr id="row_<?php echo $product_type['id']; ?>">
-                                                    <td><?php echo $product_type['id']; ?></td> 
-                                                    <td><?php echo $product_type['name']; ?></td> 
-                                                    <td><?php echo $product_type['short_description']; ?></td> 
-                                                    <td><?php echo $product_type['description']; ?></td> 
-                                                    <td> 
-                                                        <a href="edit-product-type.php?id=<?php echo $product_type['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-product-type btn btn-sm btn-danger" data-id="<?php echo $product_type['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a> |   
-                                                        <a href="view-products.php?id=<?php echo $product_type['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-picture"></i></a> 
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $product['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/product-type/<?php echo $product['image_name']; ?>" class="img-responsive ">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $product['name']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-product-type" data-id="<?php echo $product['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-product-type.php?id=<?php echo $product['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-products.php?id=<?php echo $product['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <a href="view-products.php?id=<?php echo $product['id']; ?>">  <button class="glyphicon glyphicon-picture arrange-btn"></button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No Products in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>

@@ -55,59 +55,45 @@ $PRODUCT_TYPE = new ProductType($id);
                             </div>
                             <div class="body">
                                 <form class="form-horizontal"  method="post" action="post-and-get/product.php" enctype="multipart/form-data"> 
-                                    <div class="row clearfix">
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="name">Name</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="name" class="form-control" placeholder="Enter Product name" autocomplete="off" name="name" required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" name="image" required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="short_description">Short Description</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="short_description" class="form-control" placeholder="Enter short description" autocomplete="off" name="short_description" required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="description">Description</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="description" class="form-control" name="description" >
-                                                </div>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="name" class="form-control"  autocomplete="off" name="name" required="true">
+                                                <label class="form-label">Name</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="hidden" id="id" value="<?php echo $PRODUCT_TYPE->id; ?>" name="id"/>
-                                            <input type="submit" name="create" class="btn btn-primary TYPEm-t-15 waves-effect" value="create"/>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" name="image" required="true">
+                                            </div>
                                         </div>
                                     </div>
-                                    <hr/>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="short_description" class="form-control"  autocomplete="off" name="short_description" required="true">
+                                                <label class="form-label">Short Description</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <label class="form-label">Description</label>
+                                            <div class="form-line">
+                                                <textarea id="description" name="description" class="form-control" rows="5"></textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12"> 
+                                        <input type="hidden" id="id" value="<?php echo $PRODUCT_TYPE->id; ?>" name="id"/>
+                                        <input type="submit" name="create" class="btn btn-primary TYPEm-t-15 waves-effect" value="create"/>
+                                    </div>
+                                </form>
+                                <div class="row">
+                                </div>
+                                <hr/>
                                 </form>
                                 <div class="row clearfix">
                                     <?php
@@ -159,7 +145,7 @@ $PRODUCT_TYPE = new ProductType($id);
         <script src="plugins/sweetalert/sweetalert.min.js"></script>
         <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
         <script src="js/pages/ui/dialogs.js"></script>
-       
+
         <script src="delete/js/service-photo.js" type="text/javascript"></script>
         <script src="tinymce/js/tinymce/tinymce.min.js"></script>
         <script src="delete/js/product.js" type="text/javascript"></script>

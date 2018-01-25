@@ -45,51 +45,38 @@ include_once(dirname(__FILE__) . '/auth.php');
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th> 
-                                                <th>Title</th> 
-                                                <th>Comment</th>
-                                                <th>Active</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th> 
-                                                <th>Title</th> 
-                                                <th>Comment</th>
-                                                <th>Active</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $COMMENTS = new Comments(NULL);
-                                            foreach ($COMMENTS->all() as $key => $COMMENT) {
+                                    <div class="row clearfix">
+                                        <?php
+                                        $COMMENT = Comments::all();
+                                        if (count($COMMENT) > 0) {
+                                            foreach ($COMMENT as $key => $comments) {
                                                 ?>
-                                                <tr id="row_<?php echo $COMMENT['id']; ?>">
-                                                    <td><?php echo $COMMENT['queue']; ?></td> 
-                                                    <td><?php echo $COMMENT['name']; ?></td> 
-                                                    <td><?php echo $COMMENT['title']; ?></td> 
-                                                    <td><?php echo $COMMENT['comment']; ?></td> 
-                                                    <td><?php echo $COMMENT['is_active']; ?></td> 
-                                                    <td> 
-                                                        <a href="edit-comment.php?id=<?php echo $COMMENT['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-comment btn btn-sm btn-danger" data-id="<?php echo $COMMENT['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a>                                               
-                                                     </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $comments['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/comments/<?php echo $comments['image_name']; ?>" class="img-responsive img-circle" style="width: 70%;">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $comments['name']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-comment" data-id="<?php echo $comments['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-comment.php?id=<?php echo $comments['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-comment.php?id=<?php echo $comments['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <?php
+                                                            if ($comments['is_active'] == 1) {
+                                                                echo 'Active';
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No comments in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>

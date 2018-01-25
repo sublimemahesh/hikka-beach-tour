@@ -8,10 +8,10 @@ $PROPERTIES = Room::all();
     <!-- Mirrored from creativethemes.us/relax/room-list-view2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Nov 2017 09:25:52 GMT -->
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>Hikka beach tour accommodation | Accommodation in Hikkaduwa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="description" content="Hikkaduwa Sri Lanka Accommodation." />
+        <meta name="keywords" content="Hikka Beach Tours,accommodation in srilanka,hikkaduwa accommodation,hikkaduwa beach tours,where to go in hikkaduwa,hikkaduwa,accommodation,accommodation hikkaduwa,sri lanka, hikkaduwa ,hikkaduwa beach,tours in srilanka, hikkaduwa beauty" />
         <!-- Linking Bootstrap css file -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <!-- Linking Main Css file -->

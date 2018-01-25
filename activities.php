@@ -1,12 +1,17 @@
 <!DOCTYPE html>
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$ACTVITIES = Activities::all();
+?>
 <html>
 
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>Hikka beach tour activities | Activities in Hikkaduwa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <meta name="description" content="Hikkaduwa Sri Lanka Activities. The surfing in the Hikkaduwa region is quite well known and gets the best surf during its dry season, November to March . and there are several activities to do arround hikkaduwa" />
+        <meta name="keywords" content="Hikka Beach Tours,surfing,surf hikka,hikka surf,surfing srilanka,surf tours,activities in srilanka,hikkaduwa activities,hikkaduwa beach tours,hikkaduwa activities,things to do in hikkaduwa,hikkaduwa,tour sites,travel sri lanka,sri lanka, hikkaduwa ,hikkaduwa beach,tours in srilanka, hikkaduwa beauty" />
+        
         <!-- Linking Bootstrap css file -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <!-- Linking Main Css file -->
@@ -28,10 +33,10 @@
             <div class="about-bg">
                 <div class="container">
                     <div class="rl-banner">
-                        <h2 class="tp">Excursion</h2>
+                        <h2 class="tp">Activities</h2>
                         <ul>
                             <li><a href="./">Home</a></li>
-                            <li><span class="active">Excursion</span></li>
+                            <li><span class="active">Activities</span></li>
                         </ul>
                     </div>
                 </div>
@@ -43,104 +48,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="room-listing-style3">
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                       <a href="#">
-                                        <figure>
-                                            <img src="images/resources/1116454753_198117464853_1504088059_n.jpg" alt="">
-                                        </figure>
-                                       </a>
-                                        <div class="room-info style2 style3">
-                                            <a href=""><h3>Excursion Title</h3></a>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="view-excursions.php" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                        <figure>
-                                            <img src="images/resources/zroom2.jpg" alt="">
-                                        </figure>
-                                        <div class="room-info style2 style3">
-                                            <h3>Excursion Title</h3>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="view-excursions.php" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                        <figure>
-                                            <img src="images/resources/zroom3.jpg" alt="">
-                                        </figure>
-                                        <div class="room-info style2 style3">
-                                            <h3>Excursion Title</h3>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="#" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                        <figure>
-                                            <img src="images/resources/zroom4.jpg" alt="">
-                                        </figure>
-                                        <div class="room-info style2 style3">
-                                            <h3>Excursion Title</h3>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="#" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                        <figure>
-                                            <img src="images/resources/zroom5.jpg" alt="">
-                                        </figure>
-                                        <div class="room-info style2 style3">
-                                            <h3>Excursion Title</h3>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="#" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                        <figure>
-                                            <img src="images/resources/zroom1.jpg" alt="">
-                                        </figure>
-                                        <div class="room-info style2 style3">
-                                            <h3>Excursion Title</h3>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="#" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                        <figure>
-                                            <img src="images/resources/zroom4.jpg" alt="">
-                                        </figure>
-                                        <div class="room-info style2 style3">
-                                            <h3>Excursion Title</h3>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="#" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="room-list-view">
-                                        <figure>
-                                            <img src="images/resources/zroom5.jpg" alt="">
-                                        </figure>
-                                        <div class="room-info style2 style3">
-                                            <h3>Excursion Title</h3>
-                                            <p>Lorem ipsum dolor sit amet, nonummy laor consectetuer adipiscing elit, sed diam nibh euismod tincidunt ut laoreet.</p>
-                                            <a href="#" title="" class="booking3">View More</a>
-                                        </div><!--room-info end-->
-                                    </div><!--room-list-view end-->
-                                </div>
+                                <?php
+                                foreach ($ACTVITIES as $activities) {
+                                    ?>
+                                    <div class="col-md-3">
+                                        <div class="room-list-view">
+                                            <a href="view-activities.php?id=<?php echo $activities['id']; ?>">
+                                                <figure>
+                                                    <img src="upload/activity/<?php echo $activities['image_name']; ?>" alt="">
+                                                </figure>
+                                            </a>
+                                            <div class="room-info style2 style3">
+                                                <a href="view-activities.php?id=<?php echo $activities['id']; ?>"><h3><?php echo $activities['title']; ?></h3></a>
+                                                <p class="text-justify"><?php echo substr($activities['short_description'], 0, 150) . '...'; ?></p>
+                                                <a href="view-activities.php?id=<?php echo $activities['id']; ?>" title="" class="booking3">View More</a>
+                                            </div><!--room-info end-->
+                                        </div><!--room-list-view end-->
+                                    </div>
+                                    <?php
+                                }
+                                ?>
                             </div><!--room-listing-style3 end-->
                         </div>
 

@@ -2,11 +2,12 @@
 
 //----------------------Company Information---------------------
 
-$comany_name = "Time Travel";
-$website_name = "www.srilankantimetraveller.com";
+$comany_name = "Hikka Beach Tours";
+$website_name = "www.hikkabeachtours.com";
 $comConNumber = "(+94) 91 2 276780, (+94) 77 818 0333";
-$comEmail = "dinudhanusha@gmail.com";
-$from = 'info@srilankantimetraveller.com';
+$comEmail = "info@hikkabeachtours.com";
+$from = 'info@hikkabeachtours.com';
+//$comEmail = "dinudhanusha@gmail.com";
 
 
 //----------------------CAPTCHACODE---------------------
@@ -34,7 +35,7 @@ $start_date = $_POST['start_date'];
 $end_date = $_POST['end_date'];
 $no_of_adults = $_POST['no_of_adults'];
 $no_of_children = $_POST['no_of_children'];
-$subject = 'New Website Enquiry - ' . $_POST['subject'];
+$subject = 'New Website Enquiry - ' . $_POST['tour_package'];
 
 
 date_default_timezone_set('Asia/Colombo');
@@ -47,7 +48,7 @@ include("mail-template.php");
 
 // mandatory headers for email message, change if you need something different in your setting.
 $headers = "From: " . $from . "\r\n";
-$headers .= "Reply-To: " . $replay . "\r\n";
+$headers .= "Reply-To: " . $visitor_email . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
@@ -59,8 +60,8 @@ $headers2 .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 // Sending mail
 
 if (
-        mail($comEmail, $subject, $company_message, $headers) &&
-        mail($visitor_email, $subject, $visitor_message, $headers2)) {
+        mail($visitor_email, $subject, $visitor_message, $headers) &&
+        mail($comEmail, $subject, $company_message, $headers2)) {
     
     $response['status'] = 'correct';
     $response['msg'] = "Your message has been sent successfully";

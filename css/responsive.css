@@ -187,7 +187,7 @@
 	.menu-search {display: none;}
 	.logo {padding-top: 0}
 	.hd {padding-top: 25px; padding-bottom: 25px}
-	.logo {width: auto; float: left;}
+	.logo {width: 40%;float: left;margin: -18px -18px -18px 30%;}
 	.menu-icon {display: block;}
 	.block {padding: 50px 0}
 	.block.no-padding{padding: 0;} 

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <?php
 include_once(dirname(__FILE__) . '/class/include.php');
+include("./simplestats/simplestats.inc"); 
 ?>
-<html>
+<html lang="en">
 
 
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>Hikka Beach Tours | Tours in sri lanka</title>
+        <meta name="description" content="Hikka beach tours is a perfect and superb platform to arrange your dreamed tours with an adventurous, luxurious, serene and exciting moments!">
+        <meta name="keywords" content="Hikka Beach Tours, tour guides in hikkaduwa, tourist guide hikkaduwa, surfing hikkaduwa, hikka surf, surfing srilanka, hikkaduwa surfing,tour company in hikkaduwa, hikkaduwa, travel to hikkaduwa, hikkaduwa tourism,hikkaduwa tour,travel to hikkaduwa,visit hikkaduwa,visit hikkaduwa holidays,trip to hikkaduwa,tourist in hikkaduwa,hikkaduwa travel and tours,lanka holidays,tours in galle,travel and tours,about galle, travel sri lanka,sri lanka,sri lanka tourism,sri lanka tour,travel to sri lanka,visit sri lanka,visit sri lanka holidays,trip to srilanka,tourist in sri lanka,sri lanka travel and tours,lanka holidays,tours in sri lanka,travel and tours,about sri lanka,travel websites,srilankan,srilanka" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Linking Bootstrap css file -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -28,6 +32,18 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
         <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
         <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="contact-form/style.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .client-comment.owl-pagination{
+                bottom: 0px;
+            }
+
+            @media(max-width:744px){
+                .client-comment.owl-pagination{
+                    bottom: -50px;
+                }  
+            }
+        </style>
     </head>
 
 
@@ -43,68 +59,64 @@ include_once(dirname(__FILE__) . '/class/include.php');
                     <div class="container">
                         <div class="find-room">
                             <div class="search-room">
-                                <form>
+                                <form id="tourBookingForm" method="POST" action="booking.php">
                                     <div>
-                                        <label>	
-                                            <h5>Select Tour Package</h5>
-                                            <select>
-                                                <option>Select Room Type</option>
-                                                <option>Select Room Type 2</option>
-                                                <option>Select Room Type 3</option>
-                                                <option>Select Room Type 4</option>
+
+                                        <h5>Select Tour Package</h5>
+                                        <label>
+                                            <select id="txtTourPackage" name="txtTourPackage">
+                                                <option> -- Select -- </option>
+                                                <?php
+                                                if (count(TourPackage::all()) > 0) {
+                                                    foreach (TourPackage::all() as $key => $package) {
+                                                        ?>
+
+                                                        <option value="<?php echo $package["title"]; ?>"><?php echo $package["title"]; ?></option>
+                                                        <?php
+                                                    }
+                                                } else {
+                                                    ?>
+                                                    <b style="padding-left: 15px;">No packages in the database.</b> 
+                                                    <?php
+                                                }
+                                                ?>
                                             </select>
                                             <i class="fa fa-angle-down"></i>
                                         </label>
                                     </div>
 
                                     <div>
-                                        <label>
-                                            <h5>Arrival Date</h5>
-                                            <input type="text"  name="txtAdate" id="txtAdate" value="Arrival" class="datepicker">
+
+                                        <h5>Arrival Date</h5>  <label>
+                                            <input type="text"  name="txtAdate" id="txtAdate" value="Arrival Date" class="datepicker">
                                             <i class="fa fa-calendar"></i>
                                         </label>
                                     </div>
                                     <div>
+
+                                        <h5>Departure Date</h5>
                                         <label>
-                                            <h5>Arrival Date</h5>
-                                            <input type="text" name="txtDdate" id="txtDdate" value="Departure" class="datepicker">
+                                            <input type="text" name="txtDdate" id="txtDdate"  value="Departure Date" class="datepicker">
                                             <i class="fa fa-calendar"></i>
                                         </label>
                                     </div>
                                     <div>
+                                        <h5>Adults</h5>
                                         <label>
-                                            <h5>Adults</h5>
-                                            <select>
-                                                <option>Adults</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                 <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                 <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                            </select>
-                                            <i class="fa fa-angle-down"></i>
+                                            <input type="number" min="0" name="txtAdults"  class="form-control" value="Adults">
+
                                         </label>
                                     </div>
                                     <div>
+                                        <h5>Children</h5>
                                         <label>
-                                            <h5>Children</h5>
-                                            <select>
-                                                <option>Child</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                            </select>
-                                            <i class="fa fa-angle-down	"></i>
+                                            <input type="number" min="0" name="txtChild"  class="form-control"  value="Children">
                                         </label>
                                     </div>
                                     <div>
+                                        <h5>Send Your Inquiry</h5>
                                         <label>
-                                            <h5>Search Now</h5>
-                                            <button type="button" class="searching">Search Now</button>
+                                            <button type="submit" id="btnSubmit" class="searching">Send Your Inquiry</button>
                                         </label>
                                     </div>
                                 </form>
@@ -140,86 +152,40 @@ include_once(dirname(__FILE__) . '/class/include.php');
                                     <div class="row">
                                         <!---Start test slider-->
                                         <div class="owl-carousel-custom product-row" data-items="2" data-items-sm="1" data-items-xs="1">
-                                            <div class="product">
-                                                <div class="product__top">
-                                                    <!--                                                    <div class="product__badge product__badge--green">Galle</div>-->
-                                                    <div class="product__img">
-                                                        <a href="shop-single.html" class="product__img-link">
-                                                            <img src="images/resources/1403102262_198404112362_1502704718_n.jpg" alt="img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product__info">	
-                                                    <div class="product__info-top">
-                                                        <div class="product__name">
-                                                            <a href="shop-single.html" class="product__link">Tour Package title1</a>
+                                            <?php
+                                            $TOUR_PACKAGES = TourPackage::all();
+                                            foreach ($TOUR_PACKAGES as $tour_package) {
+                                                ?>
+                                                <div class = "product">
+                                                    <div class = "product__top">
+                                                        <!--<div class = "product__badge product__badge--green">Galle</div> -->
+                                                        <div class = "product__img">
+                                                            <a href = "view-tour-package.php?id=<?php echo $tour_package['id']; ?>" class = "product__img-link">
+                                                                <img src = "upload/tour-package/<?php echo $tour_package['image_name']; ?>" alt = "img">
+                                                            </a>
                                                         </div>
-                                                        <div class="product__category">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</div>
-
                                                     </div>
-                                                    <div class="product__info-bottom">
+                                                    <div class = "product__info">
+                                                        <div class = "product__info-top">
+                                                            <div class = "product__name">
+                                                                <a href = "view-tour-package.php?id=<?php echo $tour_package['id']; ?>" class = "product__link"><?php echo $tour_package['title']; ?></a>
+                                                            </div>
+                                                            <div class = "product__category"><?php echo substr($tour_package['short_description'], 0, 150) . '...'; ?></div>
 
-                                                        <div class="product__fl-r">
-                                                            <div class="add-cart product__add-cart">
-                                                                <a href="#" title="" class="index-view-btn">View More</a>
+                                                        </div>
+                                                        <div class = "product__info-bottom">
+
+                                                            <div class = "product__fl-r">
+                                                                <div class = "add-cart product__add-cart">
+                                                                    <a href = "view-tour-package.php?id=<?php echo $tour_package['id']; ?>" title = "" class = "index-view-btn">View More</a>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>									
-                                                </div>
-                                            </div>
-                                            <div class="product">
-                                                <div class="product__top">
-
-                                                    <div class="product__img">
-                                                        <a href="shop-single.html" class="product__img-link">
-                                                            <img src="images/resources/1016441342_198017451442_1504087434_n.jpg" alt="img">
-                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="product__info">	
-                                                    <div class="product__info-top">
-                                                        <div class="product__name">
-                                                            <a href="shop-single.html" class="product__link">Tour Package title2</a>
-                                                        </div>
-                                                        <div class="product__category">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</div>
-
-                                                    </div>
-                                                    <div class="product__info-bottom">
-
-                                                        <div class="product__fl-r">
-                                                            <div class="add-cart product__add-cart">
-                                                                <a href="#" title="" class="index-view-btn">View More</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>									
-                                                </div>
-                                            </div>
-                                            <div class="product">
-                                                <div class="product__top">
-                                                    <div class="product__img">
-                                                        <a href="shop-single.html" class="product__img-link">
-                                                            <img src="images/resources/1275916018_198276926118_1502687592_n.jpg" alt="img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product__info">	
-                                                    <div class="product__info-top">
-                                                        <div class="product__name">
-                                                            <a href="shop-single.html" class="product__link text-center">Tour Package title3</a>
-                                                        </div>
-                                                        <div class="product__category text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</div>
-
-                                                    </div>
-                                                    <div class="product__info-bottom">
-
-                                                        <div class="product__fl-r">
-                                                            <div class="add-cart product__add-cart">
-                                                                <a href="#" title="" class="index-view-btn">View More</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>									
-                                                </div>
-                                            </div>
+                                                <?php
+                                            }
+                                            ?>
                                         </div>
                                         <!---end test slider-->
                                     </div>
@@ -232,57 +198,57 @@ include_once(dirname(__FILE__) . '/class/include.php');
 
 
             <section>
-                <div class="pd2 bg bg1 overlay">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-7 hidden-sm hidden-xs">
-                                <div class="ft-img thumb-carousel" data-slider-id="1">
+                <div class = "pd2 bg bg22 overlay blackish">
+                    <div class = "container">
+                        <div class = "row">
+                            <div class = "col-md-7 hidden-sm hidden-xs">
+                                <div class = "ft-img thumb-carousel" data-slider-id = "1">
                                     <div>
                                         <figure>
-                                            <img src="images/resources/ft-img3.jpg" alt="">
+                                            <img src = "images/index-services/surf.jpg" alt = "">
                                         </figure>
                                     </div>
                                     <div>
                                         <figure>
-                                            <img src="images/resources/ft-img4.jpg" alt="">
+                                            <img src = "images/index-services/transport.jpg" alt = "">
                                         </figure>
                                     </div>
                                     <div>
                                         <figure>
-                                            <img src="images/resources/ft-img.jpg" alt="">
+                                            <img src = "images/index-services/accomodation.jpg" alt = "">
                                         </figure>
                                     </div>
                                     <div>
                                         <figure>
-                                            <img src="images/resources/ft-img2.jpg" alt="">
+                                            <img src = "images/index-services/tours.jpg" alt = "">
                                         </figure>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="our-services">
-                                    <div class="title f2">
-                                        <h3>Our Awesome Services</h3>
+                            <div class = "col-md-5">
+                                <div class = "our-services style2">
+                                    <div class = "title f3 white">
+                                        <h3>Our Services</h3>
                                     </div><!--title end-->
-                                    <div class="service-thumbs owl-thumbs" data-slider-id="1">
-                                        <div class="service owl-thumb-item">
-                                            <img src="images/icon1.png" alt="">
-                                            <h4>Restaurant</h4>
+                                    <div class = "service-thumbs owl-thumbs" data-slider-id = "1">
+                                        <div class = "service owl-thumb-item">
+                                            <img src = "images/index-icons/004-windsurf-sea.png" alt = "">
+                                            <h4>Surf Lessons</h4>
                                             <p>Lorem ipsum dolor sit amet, consectetuer elit, sed diam nonummy .</p>
                                         </div><!--service end-->
-                                        <div class="service owl-thumb-item">
-                                            <img src="images/icon2.png" alt="">
-                                            <h4>Spa - Beauty & Health</h4>
+                                        <div class = "service owl-thumb-item">
+                                            <img src = "images/index-icons/003-frontal-taxi-cab.png" alt = "">
+                                            <h4>Airport Taxi</h4>
                                             <p>Lorem ipsum dolor sit amet, consectetuer elit, sed diam nonummy .</p>
                                         </div><!--service end-->
-                                        <div class="service owl-thumb-item">
-                                            <img src="images/icon3.png" alt="">
-                                            <h4>Conference Room</h4>
+                                        <div class = "service owl-thumb-item">
+                                            <img src = "images/index-icons/002-accomodation.png" alt = "">
+                                            <h4>Accimodation</h4>
                                             <p>Lorem ipsum dolor sit amet, consectetuer elit, sed diam nonummy .</p>
                                         </div><!--service end-->
-                                        <div class="service owl-thumb-item">
-                                            <img src="images/icon4.png" alt="">
-                                            <h4>Swimming Pool</h4>
+                                        <div class = "service owl-thumb-item">
+                                            <img src = "images/index-icons/001-earth-pictures.png" alt = "">
+                                            <h4>Arrange Tours</h4>
                                             <p>Lorem ipsum dolor sit amet, consectetuer elit, sed diam nonummy .</p>
                                         </div><!--service end-->
                                     </div>
@@ -291,222 +257,150 @@ include_once(dirname(__FILE__) . '/class/include.php');
                         </div>
                     </div>
                 </div>
-            </section>	
-
-            <!--
-                        <section>
-                            <div class="block remove-btm-gap">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="title f3">
-                                                <h3>Our Gallery</h3>
-                                            </div>
-                                            <div class="options">
-                                                <div class="option-isotop">
-                                                    <ul id="filter" class="option-set filters-nav" data-option-key="filter">
-                                                        <li><a class="selected" data-option-value="*">All show</a></li>
-                                                        <li><a data-option-value=".rooms">Rooms</a></li>
-                                                        <li><a data-option-value=".kitchen">Kitchen</a></li>
-                                                        <li><a data-option-value=".dinning">Dining Room</a></li>
-                                                        <li><a data-option-value=".bath">Bath Room</a></li>
-                                                        <li><a data-option-value=".swimming">Swimming Pool</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div> FILTER BUTTONS 
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row gallery grid">
-                                                <div class="col-md-5 col-sm-5 col-xs-5 rooms swimming">
-                                                    <div class="grid-item2 width-auto">
-                                                        <figure>
-                                                            <img src="images/resources/01.jpg" alt="">
-                                                            <figcaption>
-                                                                <h5>Bed room</h5>
-                                                                <ul>
-                                                                    <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                                </ul>
-                                                            </figcaption>
-                                                            <div class="popup-icon">
-                                                                <a class="html5lightbox" data-thumbnail="images/resources/gallery1.jpg" data-group="set1" href="images/resources/gallery1.jpg" title="home 1"><i class="fa fa-compress"></i></a>
-                                                            </div>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-            
-            
-                                                <div class=" col-md-2 col-sm-2 col-xs-2  kitchen">
-                                                    <div class="grid-item2 width-auto">
-                                                        <figure>
-                                                            <img src="images/resources/02.jpg" alt="">
-                                                            <figcaption>
-                                                                <h5>Bed room</h5>
-                                                                <ul>
-                                                                    <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                                </ul>
-                                                            </figcaption>
-                                                            <div class="popup-icon">
-                                                                <a class="html5lightbox" data-thumbnail="images/resources/gallery2.jpg" data-group="set1" href="images/resources/gallery2.jpg" title="home 2"><i class="fa fa-compress"></i></a>
-                                                            </div>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-            
-            
-                                                <div class="col-md-5 col-sm-5 col-xs-5 dinning bath">
-                                                    <div class="grid-item2 width-auto">
-                                                        <figure>
-                                                            <img src="images/resources/03.jpg" alt="">
-                                                            <figcaption>
-                                                                <h5>Bed room</h5>
-                                                                <ul>
-                                                                    <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                                </ul>
-                                                            </figcaption>
-                                                            <div class="popup-icon">
-                                                                <a class="html5lightbox" data-thumbnail="images/resources/gallery3.jpg" data-group="set1" href="images/resources/gallery3.jpg" title="home 3"><i class="fa fa-compress"></i></a>
-                                                            </div>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-            
-            
-            
-                                                <div class="col-md-5  col-sm-5 col-xs-5  bath rooms">
-                                                    <div class="grid-item2 width-auto">
-                                                        <figure>
-                                                            <img src="images/resources/04.jpg" alt="">
-                                                            <figcaption>
-                                                                <h5>Bed room</h5>
-                                                                <ul>
-                                                                    <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                                </ul>
-                                                            </figcaption>
-                                                            <div class="popup-icon">
-                                                                <a class="html5lightbox" data-thumbnail="images/resources/gallery4.jpg" data-group="set1" href="images/resources/gallery4.jpg" title="home 4"><i class="fa fa-compress"></i></a>
-                                                            </div>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-            
-            
-            
-                                                <div class=" col-md-7 col-sm-7 col-xs-7  swimming kitchen">
-                                                    <div class="grid-item2 width-auto">
-                                                        <figure>
-                                                            <img src="images/resources/05.jpg" alt="">
-                                                            <figcaption>
-                                                                <h5>Bed room</h5>
-                                                                <ul>
-                                                                    <li><a href="#" title=""><i class="fa fa-television"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-wifi"></i></a></li>
-                                                                    <li><a href="#" title=""><i class="fa fa-video-camera"></i></a></li>
-                                                                </ul>
-                                                            </figcaption>
-                                                            <div class="popup-icon">
-                                                                <a class="html5lightbox" data-thumbnail="images/resources/gallery5.jpg" data-group="set1" href="images/resources/gallery5.jpg" title="home 5"><i class="fa fa-compress"></i></a>
-                                                            </div>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-            
-            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>-->
-
+            </section>
             <section>
-                <div class="block trip remove-btm-gap">
-                    <div class="container-fluid">
-                        <div class="title ta-center f3">
-                            <h3>Excursions</h3>
-                        </div><!--title end-->
-                        <div class="row">
-                            <div class="luxury-trip">
-                                <div class="masonary">	
-                                    <div class="grid-sizer"></div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="tripp">
+                <div class = "block">
+                    <div class = "container">
+                        <div class = "row">
+                            <div class = "col-md-12">
+                                <div class = "client-comment">
+                                    <div class = "title ta-center f3">
+                                        <h3>Testimonial</h3>
+                                    </div><!--title end-->
+
+                                    <div class = "owl-carousel-custom" data-items = "1" data-items-sm = "1" data-items-xs = "1">
+
+                                        <?php
+                                        $COMMENTS = Comments::activeComments();
+                                        foreach ($COMMENTS as $key => $comment) {
+                                            ?>
+                                            <div class = "comment">
+                                                <?php echo $comment['comment']; ?>
+                                                <div class = "client-info">
+                                                    <div class = "client-picc">
+                                                        <img src = "upload/comments/<?php echo $comment['image_name']; ?>" alt = "">
+                                                    </div>
+                                                    <div class = "client-dt">
+                                                        <h5><?php echo $comment['name']; ?></h5>
+                                                    </div>
+                                                </div>
+                                            </div><!--comment end-->
+
+                                            <?php
+                                        }
+                                        ?>
+
+                                    </div><!--client-carousel end-->
+                                    <div class="btn-container">
+                                        <button type="submit" id="btn-add-comment" class="btn index-view-btn">
+                                            <i class="fa fa-plus"></i>  Add Your Comment
+                                        </button>
+                                    </div>
+                                    <?php
+                                    include './add-comments.php';
+                                    ?>
+                                </div><!--client-comment end-->
+                                <div class="padding-bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <?php
+            $ACTIVITY = Activities::all();
+            ?>
+            <section>
+                <div class = "block trip remove-btm-gap">
+                    <div class = "container-fluid">
+                        <div class = "row">
+                            <div class = "luxury-trip">
+                                <div class = "masonary">
+                                    <div class = "grid-sizer"></div>
+                                    <div class="row">
+                                        <div class = "col-md-6 col-sm-6 col-xs-12">
+                                            <div class = "tripp">
+                                                <figure>
+                                                    <img src = "images/index-activities/hikkaduwa1.jpg" alt = "">
+                                                    <figcaption>
+                                                        <h3>
+                                                            Diving & Snorkeling
+                                                        </h3>
+                                                                                                                <!--<p><b>$93.00 /</b> Extra</p> -->
+                                                    </figcaption>
+                                                    <span class = "overlay-data">
+                                                        <h3>Diving & Snorkeling </h3>
+                                                        <!--<span>Dinner Breakfast</span>
+                                                        <h5>$29.00 / <small>Extra</small></h5> -->
+                                                        <a href = "view-activities.php?id=16" title = "" class = "booking">View More</a>
+                                                    </span><!--overlay-data end-->
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3 col-xs-12">
+                                            <div class = "tripp">
+                                                <figure>
+                                                    <img src = "images/index-activities/Surfing.jpg" alt = "">
+                                                    <figcaption class = "ta-center">
+                                                        <h3>
+                                                            Surfing 
+                                                        </h3>
+                                                    </figcaption>
+                                                    <span class = "overlay-data">
+                                                        <h3>
+                                                            Surfing 
+                                                        </h3>
+
+                                                        <a href = "view-activities.php?id=22" title = "" class = "booking">View More</a>
+                                                    </span><!--overlay-data end-->
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <div class = "col-md-3 col-sm-3 col-xs-12">
+                                            <div class = "tripp">
+                                                <figure>
+                                                    <img src = "images/index-activities/24379.jpg" alt = "">
+                                                    <figcaption class = "ta-center">
+                                                        <h3>
+                                                            Madu Ganga
+                                                        </h3>
+                                                    </figcaption>
+                                                    <span class = "overlay-data">
+                                                        <h3>
+                                                            Madu Ganga
+                                                        </h3>
+
+                                                        <a href = "view-activities.php?id=21" title = "" class = "booking">View More</a>
+                                                    </span><!--overlay-data end-->
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "col-md-6 col-sm-6 col-xs-12">
+                                        <div class = "tripp fr">
                                             <figure>
-                                                <img src="images/resources/trip1.jpg" alt="">
-                                                <figcaption>
-                                                    <h3>Water Rafting</h3>
-<!--                                                    <p><b>$93.00 /</b> Extra</p>-->
+                                                <img src = "images/index-activities/jet-ski.jpg" alt = "">
+                                                <figcaption class = "ta-center">
+                                                    <h3>Jet Ski</h3>
+
                                                 </figcaption>
-                                                <div class="overlay-data">
-                                                    <h3>Water Rafting</h3>
-<!--                                                    <span>Dinner Breakfast</span>
-                                                    <h5>$29.00 / <small>Extra</small></h5>-->
-                                                    <a href="#" title="" class="booking">View More</a>
-                                                </div><!--overlay-data end-->
+                                                <span class = "overlay-data">
+                                                    <h3>Jet Ski</h3>
+                                                    <a href = "view-activities.php?id=20" title = "" class = "booking">View More</a>
+                                                </span><!--overlay-data end-->
                                             </figure>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="tripp">
+                                    <div class = "col-md-6 col-sm-6 col-xs-12">
+                                        <div class = "tripp fr">
                                             <figure>
-                                                <img src="images/resources/trip2.jpg" alt="">
-                                                <figcaption class="ta-center">
-                                                    <h3>Water Rafting</h3>
+                                                <img src = "images/index-activities/turtle.jpg" alt = "">
+                                                <figcaption class = "ta-center">
+                                                    <h3>Turtle Conservation</h3>
                                                 </figcaption>
-                                                <div class="overlay-data">
-                                                    <h3>Canyoning</h3>
-
-                                                    <a href="#" title="" class="booking">View More</a>
-                                                </div><!--overlay-data end-->
-                                            </figure>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="tripp">
-                                            <figure>
-                                                <img src="images/resources/trip3.jpg" alt="">
-                                                <figcaption class="ta-center">
-                                                </figcaption>
-                                                <div class="overlay-data">
-                                                    <h3>Canyoning</h3>
-
-                                                    <a href="#" title="" class="booking">View More</a>
-                                                </div><!--overlay-data end-->
-                                            </figure>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="tripp fr">
-                                            <figure>
-                                                <img src="images/resources/trip4.jpg" alt="">
-                                                <figcaption class="ta-center">
-                                                    <h3>Water Rafting</h3>
-
-                                                </figcaption>
-                                                <div class="overlay-data">
-
-                                                    <a href="#" title="" class="booking">View More</a>
-                                                </div><!--overlay-data end-->
-                                            </figure>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="tripp fr">
-                                            <figure>
-                                                <img src="images/resources/trip5.jpg" alt="">
-                                                <figcaption class="ta-center">
-                                                    <h3>Water Rafting</h3>
-                                                </figcaption>
-                                                <div class="overlay-data">
-                                                    <h3>Canyoning</h3>
-                                                    <a href="#" title="" class="booking">View More</a>
+                                                <div class = "overlay-data">
+                                                    <h3>Turtle Conservation </h3>
+                                                    <a href = "view-activities.php?id=24" title = "" class = "booking">View More</a>
                                                 </div><!--overlay-data end-->
                                             </figure>
                                         </div>
@@ -518,57 +412,8 @@ include_once(dirname(__FILE__) . '/class/include.php');
                 </div>
             </section>
 
-            <section>
-                <div class="block">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="client-comment">
-                                    <div class="title">
-                                        <h3>Testimonial</h3>
-                                    </div>
-                                    <div class="owl-carousel-custom" data-items="1" data-items-sm="1" data-items-xs="1">
-                                        <div class="comment">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo consequat. </p>
-                                            <div class="client-info">
-                                                <div class="client-picc">
-                                                    <img src="images/resources/client-pic4.png" alt="">
-                                                </div>
-                                                <div class="client-dt">
-                                                    <h5>Ken Lerer</h5>
-                                                </div>
-                                            </div>
-                                        </div><!--comment end-->
-                                        <div class="comment">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-                                            <div class="client-info">
-                                                <div class="client-picc">
-                                                    <img src="images/resources/client-pic2.png" alt="">
-                                                </div>
-                                                <div class="client-dt">
-                                                    <h5> Jon Doe</h5>
-                                                </div>
-                                            </div>
-                                        </div><!--comment end-->
-                                        <div class="comment">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim enim ad minim veniam, quis nostrud exercitation  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo consequat. </p>
-                                            <div class="client-info">
-                                                <div class="client-picc">
-                                                    <img src="images/resources/client-pic3.png" alt="">
-                                                </div>
-                                                <div class="client-dt">
-                                                    <h5>Lara Ditta</h5>
-                                                </div>
-                                            </div>
-                                        </div><!--comment end-->
-                                    </div><!--client-carousel end-->
-                                </div><!--client-comment end-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <?php include './footer.php'; ?>
+            <?php include './footer.php';
+            ?>
 
         </div><!--wrapper end-->
 
@@ -602,14 +447,15 @@ include_once(dirname(__FILE__) . '/class/include.php');
         <script type="text/javascript" src="js/script.js"></script>
         <script src="js/owl-carousel/owl.carousel.min1.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="guest-comment/validate.js" type="text/javascript"></script>
         <script type="text/javascript">
             var dateToday = new Date();
 
             $(function () {
 
                 $("[id=txtDdate]").datepicker({
-//                    dateFormat: 'dd-mm-yy',
-////                    minDate: dateToday
+                    dateFormat: 'dd-mm-yy',
+                    minDate: dateToday
                 }).val();
             });
 
@@ -617,12 +463,57 @@ include_once(dirname(__FILE__) . '/class/include.php');
             $(function () {
 
                 $("[id=txtAdate]").datepicker({
-//                    dateFormat: 'dd-mm-yy',
-//                    minDate: dateToday
+                    dateFormat: 'dd-mm-yy',
+                    minDate: dateToday
                 }).val();
             });
         </script>
 
+
+        <script>
+            jQuery(document).ready(function () {
+                jQuery('#btn-add-comment').click(function () {
+                    jQuery("#myModal").modal('show');
+                });
+
+            });
+
+
+            jQuery('#create').click(function (event) {
+
+                event.preventDefault();
+
+                var captchacode = jQuery('#captchacode').val();
+
+                jQuery.ajax({
+                    url: "guest-comment/captchacode.php",
+                    cache: false,
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        captchacode: captchacode
+
+                    },
+                    success: function (html) {
+                        var status = html.status;
+                        var msg = html.msg;
+
+                        if (status == "incorrect") {
+
+                            jQuery("#capspan").addClass("notvalidated");
+                            jQuery("#capspan").html(msg);
+                            jQuery("#capspan").show();
+                            jQuery("#capspan").fadeOut(2000);
+
+                        } else if (status == "correct") {
+                            jQuery('#client-comment').submit();
+                        }
+                    }
+                });
+            });
+
+
+        </script>
 
     </body>
 

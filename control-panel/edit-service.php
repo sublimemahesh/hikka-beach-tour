@@ -48,63 +48,47 @@ $SERVICE = new Service($id);
                                 </h2>
 
                             </div>
-                            <div class="body row">
+                            <div class="body">
                                 <form class="form-horizontal" method="post" action="post-and-get/service.php" enctype="multipart/form-data"> 
-
-                                    <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="Title">Title</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="title" class="form-control"  value="<?php echo $SERVICE->title; ?>"  name="title"  required="TRUE">
-                                                </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="title" class="form-control"  value="<?php echo $SERVICE->title; ?>"  name="title"  required="TRUE">
+                                                <label class="form-label">Title</label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" value="<?php echo $SERVICE->image_name; ?>"  name="image">
-                                                    <img src="../upload/service/<?php echo $SERVICE->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="short_description">Short Description</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="short_description" class="form-control" value="<?php echo $SERVICE->short_description; ?>"  name="short_description">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="description">Description</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="description" class="form-control" value="<?php echo $SERVICE->description; ?>"  name="description">
-                                                </div>
+                                    </div>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" value="<?php echo $SERVICE->image_name; ?>"  name="image">
+                                                <img src="../upload/service/<?php echo $SERVICE->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
                                             </div>
                                         </div>
                                     </div>
 
 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-
-                                            <input type="hidden" id="oldImageName" value="<?php echo $SERVICE->image_name; ?>" name="oldImageName"/>
-                                            <input type="hidden" id="id" value="<?php echo $SERVICE->id; ?>" name="id"/>
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="short_description" class="form-control" value="<?php echo $SERVICE->short_description; ?>"  name="short_description">
+                                                <label class="form-label">Short Description</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="description">Description</label>
+                                        <div class="form-line">
+                                            <textarea id="description" name="description" class="form-control" rows="5"><?php echo $SERVICE->description; ?></textarea> 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="oldImageName" value="<?php echo $SERVICE->image_name; ?>" name="oldImageName"/>
+                                        <input type="hidden" id="id" value="<?php echo $SERVICE->id; ?>" name="id"/>
 <!--                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>-->
-                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
-                                        </div>
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
                                     </div>
+                                    <div class="row clearfix">  </div>
                                 </form>
                             </div>
                         </div>

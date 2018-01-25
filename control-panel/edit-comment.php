@@ -47,84 +47,67 @@ $COMMENT = new Comments($id);
                                 <h2>
                                     Edit Comment
                                 </h2>
-
+                                <ul class="header-dropdown">
+                                    <li class="">
+                                        <a href="manage-comments.php">
+                                            <i class="material-icons">list</i> 
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="body row">
+                            <div class="body">
                                 <form class="form-horizontal" method="post" action="post-and-get/comment.php" enctype="multipart/form-data"> 
-
-                                    <div class="row clearfix">
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="title">Name</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="name" class="form-control" placeholder="Enter your name" autocomplete="off" name="name" value="<?php echo $COMMENT->name; ?>">
-                                                </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="name" class="form-control" autocomplete="off" name="name" value="<?php echo $COMMENT->name; ?>">
+                                                <label class="form-label">Name</label>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="title">Title</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="title" class="form-control" placeholder="Enter title" autocomplete="off" name="title" value="<?php echo $COMMENT->title; ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" name="image">
-                                                    <img src="../upload/comments/<?php echo $COMMENT->image_name; ?>" id="image" class="view-edit-img-comments img img-responsive img-thumbnail" name="image" alt="old image">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="description">Comment</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="description" class="form-control" name="comment" value="<?php echo $COMMENT->comment; ?>" >
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                          
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <input class="filled-in chk-col-pink" type="checkbox" <?php
-                                                if ($COMMENT->is_active == 1) {
-                                                    echo 'checked';
-                                                }
-                                                ?> name="active" value="1" id="rememberme" />
-                                                <label for="rememberme">Activate</label>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-
-                                            <input type="hidden" id="oldImageName" value="<?php echo $COMMENT->image_name; ?>" name="oldImageName"/>
-                                            <input type="hidden" id="id" value="<?php echo $COMMENT->id; ?>" name="id"/>
-<!--                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>-->
-                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="title" class="form-control" placeholder="Enter title" autocomplete="off" name="title" value="<?php echo $COMMENT->title; ?>">
+                                                <label class="form-label">Title</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" name="image">
+                                                <img src="../upload/comments/<?php echo $COMMENT->image_name; ?>" id="image" class="view-edit-img-comments img img-responsive img-thumbnail" name="image" alt="old image">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label for="Comment">Comment</label>
+                                        <div class="form-line">
+                                            <textarea id="description" name="comment" class="form-control" rows="5"><?php echo $COMMENT->comment; ?></textarea> 
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input class="filled-in chk-col-pink" type="checkbox" <?php
+                                            if ($COMMENT->is_active == 1) {
+                                                echo 'checked';
+                                            }
+                                            ?> name="active" value="1" id="rememberme" />
+                                            <label for="rememberme">Activate</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="oldImageName" value="<?php echo $COMMENT->image_name; ?>" name="oldImageName"/>
+                                        <input type="hidden" id="id" value="<?php echo $COMMENT->id; ?>" name="id"/>
+            <!--                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>-->
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
+                                    </div>
+                                    <div class="row clearfix">  </div>
+                                    <hr/>
                                 </form>
                             </div>
                         </div>

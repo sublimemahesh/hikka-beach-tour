@@ -46,49 +46,35 @@ include_once(dirname(__FILE__) . '/auth.php');
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $ACTIVITY = new Activities(NULL);
-                                            foreach ($ACTIVITY->all() as $key => $activity) {
+                                   
+                                         <div class="row clearfix">
+                                        <?php
+                                        $ACTIVITY = Activities::all();
+                                        if (count($ACTIVITY) > 0) {
+                                            foreach ($ACTIVITY as $key => $activity) {
                                                 ?>
-                                                <tr id="row_<?php echo $activity['id']; ?>">
-                                                    <td><?php echo $activity['queue']; ?></td> 
-                                                    <td><?php echo $activity['title']; ?></td> 
-                                                    <td><?php echo $activity['short_description']; ?></td> 
-                                                    <td><?php echo $activity['description']; ?></td> 
-                                                    <td> 
-                                                        <a href="edit-activity.php?id=<?php echo $activity['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-activity btn btn-sm btn-danger" data-id="<?php echo $activity['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a> |   
-                                                        <a href="view-activity-photos.php?id=<?php echo $activity['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-picture"></i></a> 
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $activity['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/activity/<?php echo $activity['image_name']; ?>" class="img-responsive ">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $activity['title']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-activity" data-id="<?php echo $activity['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-activity.php?id=<?php echo $activity['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-activity.php?id=<?php echo $activity['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <a href="view-activity-photos.php?id=<?php echo $activity['id']; ?>">  <button class="glyphicon glyphicon-picture arrange-btn"></button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No Activities in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>

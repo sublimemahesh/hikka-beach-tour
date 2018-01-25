@@ -1,7 +1,6 @@
 ﻿<?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-
 ?> 
 ﻿<!DOCTYPE html>
 <html>
@@ -47,51 +46,35 @@ include_once(dirname(__FILE__) . '/auth.php');
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $SERVICE = new Service(NULL);
-                                            foreach ($SERVICE->all() as $key => $service) {
+                          
+                                    <div class="row clearfix">
+                                        <?php
+                                        $SERVICE = Service::all();
+                                        if (count($SERVICE) > 0) {
+                                            foreach ($SERVICE as $key => $service) {
                                                 ?>
-                                                <tr id="row_<?php echo $service['id']; ?>">
-                                                    <td><?php echo $service['queue']; ?></td> 
-                                                    <td><?php echo $service['title']; ?></td> 
-                                                    <td><?php echo $service['short_description']; ?></td> 
-                                                    <td><?php echo $service['description']; ?></td> 
-                                                    <td> 
-                                                        <a href="edit-service.php?id=<?php echo $service['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-service btn btn-sm btn-danger" data-id="<?php echo $service['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a> |   
-                                                        <a href="view-service-photos.php?id=<?php echo $service['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-picture"></i></a> 
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $service['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/service/<?php echo $service['image_name']; ?>" class="img-responsive ">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $service['title']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-service" data-id="<?php echo $service['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-service.php?id=<?php echo $service['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-services.php?id=<?php echo $service['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <a href="view-service-photos.php?id=<?php echo $service['id']; ?>">  <button class="glyphicon glyphicon-picture arrange-btn"></button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No Services in the database.</b> 
+                                        <?php } ?> 
 
-                                        </tbody>
-                                    </table>
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>

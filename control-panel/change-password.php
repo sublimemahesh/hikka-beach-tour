@@ -75,7 +75,7 @@ $USER = new User($id);
                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="password" id="newPass" class="form-control" placeholder="Enter your new password" name="newPass"  required="TRUE">
+                                                    <input type="password" id="newPass" class="form-control" minlength="6" placeholder="Enter your new password" name="newPass"  required="TRUE">
                                                 </div>
                                             </div>
                                         </div>
@@ -88,7 +88,7 @@ $USER = new User($id);
                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="password" id="confPass" class="form-control" placeholder="confirm your new password" name="confPass"  required="TRUE">
+                                                    <input type="password" id="confPass" class="form-control" minlength="6" placeholder="confirm your new password" name="confPass"  required="TRUE">
                                                 </div>
                                             </div>
                                         </div>

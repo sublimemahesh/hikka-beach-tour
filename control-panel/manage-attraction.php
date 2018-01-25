@@ -1,14 +1,6 @@
 ﻿<?php
 include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
-
-
-//if (isset($_GET['delete'])) {
-//    $ATTRACTION = new Attraction($_GET['delete']);
-//    $imgName = $ATTRACTION->image_name;
-//    unlink('../upload/attraction/' . $imgName);
-//    $ATTRACTION->delete();
-//}
 ?> 
 ﻿<!DOCTYPE html>
 <html>
@@ -53,50 +45,34 @@ include_once(dirname(__FILE__) . '/auth.php');
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $ATTRACTION = new Attraction(NULL);
-                                            foreach ($ATTRACTION->all() as $key => $attraction) {
+                                    <div class="row clearfix">
+                                        <?php
+                                        $ATTRACTION = Attraction::all();
+                                        if (count($ATTRACTION) > 0) {
+                                            foreach ($ATTRACTION as $key => $attraction) {
                                                 ?>
-                                                <tr id="row_<?php echo $attraction['id']; ?>">
-                                                    <td><?php echo $attraction['queue']; ?></td> 
-                                                    <td><?php echo $attraction['title']; ?></td> 
-                                                    <td><?php echo substr($attraction['short_description'],0,30); ?></td> 
-                                                    <td><?php echo substr($attraction['description'],0,30); ?></td> 
-                                                    <td> 
-                                                        <a href="edit-attraction.php?id=<?php echo $attraction['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-attraction btn btn-sm btn-danger" data-id="<?php echo $attraction['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a> |   
-                                                        <a href="view-attraction-photos.php?id=<?php echo $attraction['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-picture"></i></a> 
-
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $attraction['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/attraction/<?php echo $attraction['image_name']; ?>" class="img-responsive ">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $attraction['title']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-attraction" data-id="<?php echo $attraction['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-attraction.php?id=<?php echo $attraction['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-attraction.php?id=<?php echo $attraction['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <a href="view-attraction-photos.php?id=<?php echo $attraction['id']; ?>">  <button class="glyphicon glyphicon-picture arrange-btn"></button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No Attrations in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>

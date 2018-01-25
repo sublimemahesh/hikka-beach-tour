@@ -46,46 +46,34 @@ include_once(dirname(__FILE__) . '/auth.php');
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Description</th>
-                                                <th>Option</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $PHOTO_ALBUM = new PhotoAlbum(NULL);
-                                            foreach ($PHOTO_ALBUM->all() as $key => $photo_album) {
+                                    <div class="row clearfix">
+                                        <?php
+                                        $PHOTO_ALBUM = PhotoAlbum::all();
+                                        if (count($PHOTO_ALBUM) > 0) {
+                                            foreach ($PHOTO_ALBUM as $key => $photo_album) {
                                                 ?>
-                                                <tr id="row_<?php echo $photo_album['id']; ?>">
-                                                    <td><?php echo $photo_album['queue']; ?></td> 
-                                                    <td><?php echo $photo_album['title']; ?></td> 
-                                                    <td><?php echo $photo_album['description']; ?></td> 
-                                                    <td> 
-                                                        <a href="edit-photo-album.php?id=<?php echo $photo_album['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                        <a href="#" class="delete-photo-album btn btn-sm btn-danger" data-id="<?php echo $photo_album['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a> |   
-                                                        <a href="view-album-photos.php?id=<?php echo $photo_album['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-picture"></i></a> 
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $photo_album['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/photo-album/<?php echo $photo_album['image_name']; ?>" class="img-responsive ">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $photo_album['title']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-photo-album" data-id="<?php echo $photo_album['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-photo-album.php?id=<?php echo $photo_album['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-photo-album.php?id=<?php echo $photo_album['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <a href="view-album-photos.php?id=<?php echo $photo_album['id']; ?>">  <button class="glyphicon glyphicon-picture arrange-btn"></button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No Photo Albums in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>

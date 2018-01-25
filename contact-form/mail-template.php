@@ -367,5 +367,4 @@ $company_message = '
         </table>
     </body>
 </html>';
-
 ?>

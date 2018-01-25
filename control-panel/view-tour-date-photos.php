@@ -54,38 +54,30 @@ $TOUR_DATE = new TourDate($id)
                             </div>
                             <div class="body">
                                 <form class="form-horizontal"  method="post" action="post-and-get/tour-date-photo.php" enctype="multipart/form-data"> 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" name="image" required="true">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="short_description">Caption</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="caption" class="form-control" placeholder="Enter Image Caption" autocomplete="off" name="caption" required="true">
-                                                </div>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" name="image"  required="true">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5"> 
-                                            <input type="hidden" id="id" value="<?php echo $TOUR_DATE->id; ?>" name="id"/>
-                                            <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="caption" class="form-control" autocomplete="off" name="caption" required="true">
+                                                <label class="form-label">Caption</label>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-12"> 
+                                        <input type="hidden" id="id" value="<?php echo $TOUR_DATE->id; ?>" name="id"/>
+                                        <input type="submit" name="create" class="btn btn-primary m-t-15 waves-effect" value="create"/>
                                     </div>
                                     <hr/>
                                 </form>
-
+                                <div class="row">
+                                </div>
+                                <hr/>
                                 <div class="row clearfix">
                                     <?php
                                     $TOUR_DATE_PHOTO = TourDatePhoto::getTourDatePhotosById($id);
@@ -94,7 +86,7 @@ $TOUR_DATE = new TourDate($id)
                                             ?>
                                             <div class="col-md-3"  id="div<?php echo $tour_date_photo['id']; ?>">
                                                 <div class="photo-img-container">
-                                                    <img src="../upload/tour-package/date/gallery/<?php echo $tour_date_photo['image_name']; ?>" class="img-responsive ">
+                                                    <img src="../upload/tour-package/date/gallery/thumb/<?php echo $tour_date_photo['image_name']; ?>" class="img-responsive ">
                                                 </div>
                                                 <div class="img-caption">
                                                     <p class="maxlinetitle"><?php echo $tour_date_photo['caption']; ?></p>
@@ -139,7 +131,7 @@ $TOUR_DATE = new TourDate($id)
         <script src="js/pages/ui/dialogs.js"></script>
         <script src="js/demo.js"></script>
         <script src="delete/js/tour-date-photo.js" type="text/javascript"></script>
-        
+
         <script>
             tinymce.init({
                 selector: "#description",

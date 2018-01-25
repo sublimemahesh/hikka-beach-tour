@@ -1,23 +1,4 @@
-<section>
-    <div class="block no-padding">
-        <div class="newsletter">
-            <div class="bg2">
-                <div class="container">
-                    <div class="stay-tuned">
-                        <h2>Stay tuned with us</h2>
-                        <h5>Get our updated offers, discounts, events and much more!</h5>
-                    </div>
-                    <div class="email-form">
-                        <form>
-                            <input name="" placeholder="Enter your email address" type="text">
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div><!--email-form end-->
-                </div>
-            </div>
-        </div><!--newsletter end-->
-    </div>
-</section>
+
 
 <footer>
     <div class="block no-padding">
@@ -46,27 +27,23 @@
                             <div class="widget">
                                 <div class="news-widget">
                                     <h3 class="widget-title">Tour Packages</h3>
+                                    <?php
+                                    $TOUR_PACKAGES = TourPackage::all();
+                                    foreach ($TOUR_PACKAGES as $key => $tour_package){
+                                    if ($key<3) {
+                                    ?>
                                     <div class="news">
-                                        <img src="images/resources/sroom1.png" alt="">
+                                        <img src="upload/tour-package/<?php echo $tour_package['image_name']; ?>" style="width:120px;" alt="">
                                         <div class="news-details">
-                                            <h3><a href="#" title="">1 Day Tour</a></h3>
+                                            <h3><a href="#" title=""><?php echo $tour_package['title']; ?></a></h3>
 
                                         </div>
                                     </div><!--news end-->
-                                    <div class="news">
-                                        <img src="images/resources/sroom2.png" alt="">
-                                        <div class="news-details">
-                                            <h3><a href="#" title="">2 Day Tour</a></h3>
+                                    <?php
+                                    }
+                                    }
+                                    ?>
 
-                                        </div>
-                                    </div><!--news end-->
-                                    <div class="news">
-                                        <img src="images/resources/sroom3.png" alt="">
-                                        <div class="news-details">
-                                            <h3><a href="#" title="">14 Day Tour</a></h3>
-
-                                        </div>
-                                    </div><!--news end-->
                                 </div><!--news-widget end-->
                             </div><!--widget end-->
                         </div>
@@ -78,14 +55,14 @@
                                         <ul>
                                             <li><a href="index.php" title="">Home</a></li>
                                             <li><a href="tour-packages.php" title="">Tour Packages</a></li>
-                                            <li><a href="excursion.php" title="">Excursions</a></li>
-                                            <li><a href="services.php" title="">Services</a></li>
+                                            <li><a href="activities.php" title="">Activities</a></li>
+                                            <li><a href="Attractions" title="">Excursions</a></li>
                                             <li><a href="properties.php" title="">Properties</a></li>
                                             <li><a href="booking.php" title="">Booking</a></li>
                                             <li><a href="gallery.php" title="">Gallery</a></li>
                                             <li><a href="contact-us.php" title="">Contact us</a></li>
                                         </ul>
-                                     
+
                                     </div>
                                 </div><!--widget-quick-links end-->
                             </div><!--widget-end-->
@@ -94,7 +71,7 @@
                 </div><!--top-footer end-->
                 <div class="bottom-footer">
                     <div class="copyright">
-                        <p>© 2017 Hikka Tours. All Rights Reserved. </p>
+                        <p>© 2017 Hikka Beach Tours. All Rights Reserved. </p>
                     </div><!--copyright end-->
                     <div class="credit">
                         <p>Create design by : <a href="#" title>Sublime</a></p>

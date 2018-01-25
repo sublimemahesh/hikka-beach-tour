@@ -4,12 +4,13 @@ include_once(dirname(__FILE__) . '/auth.php');
 
 $PRODUCT = new Product(NULL);
 
-if (isset($_GET['delete'])) {
-    $PRODUCT_TYPE = new ProductType($_GET['delete']);
-    $imgName = $PRODUCT_TYPE->image_name;
-    unlink('../upload/product-type/' . $imgName);
-    $PRODUCT_TYPE->delete();
-}
+//if (isset($_GET['delete'])) {
+//    $PRODUCT_TYPE = new ProductType($_GET['delete']);
+//    $imgName = $PRODUCT_TYPE->image_name;
+//    unlink('../upload/product-type/' . $imgName);
+//    $PRODUCT_TYPE->delete();
+//}
+//
 ?>
 
 
@@ -87,8 +88,8 @@ if (isset($_GET['delete'])) {
                                                     <td><?php echo $product['id']; ?></td> 
                                                     <td><?php echo $product['type']; ?></td> 
                                                     <td><?php echo $product['name']; ?></td> 
-                                                    <td><?php echo $product['short_description']; ?></td> 
-                                                    <td><?php echo $product['description']; ?></td> 
+                                                    <td><?php echo substr($product['short_description'], 0, 30); ?></td> 
+                                                    <td><?php echo substr($product['description'], 0, 30); ?></td> 
                                                     <td> 
                                                         <a href="edit-product.php?id=<?php echo $product['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
                                                         <a href="#" class="delete-product btn btn-sm btn-danger" data-id="<?php echo $product['id']; ?>">

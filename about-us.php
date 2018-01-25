@@ -4,13 +4,13 @@ include_once(dirname(__FILE__) . '/class/include.php');
 $ABOUT_US = new Page(1);
 ?>
 <html>
-
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>About Hikka Beach Tours | Hikkaduwa </title>
+        <meta name="description" content="Hikka beach tours is a perfect and superb platform to arrange your dreamed tours with an adventurous, luxurious, serene and exciting moments!">
+        <meta name="keywords" content="Hikka Beach Tours,travel in srilanka,hikkaduwa beach,beach tours,hikkaduwa tours,tour in hikkaduwa,hikkaduwa surfing,tour sites,travel sri lanka,sri lanka, hikkaduwa">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+
         <!-- Linking Bootstrap css file -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <!-- Linking Main Css file -->
@@ -20,14 +20,9 @@ $ABOUT_US = new Page(1);
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/color.css">
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
-
     </head>
-
-
     <body>
-
         <div class="wrapper">
-
             <?php include './header.php'; ?>
             <div class="about-bg">
                 <div class="container">
@@ -40,9 +35,6 @@ $ABOUT_US = new Page(1);
                     </div>
                 </div>
             </div>
-
-
-
             <section>
                 <div class="pd90">
                     <div class="container">
@@ -147,10 +139,10 @@ $ABOUT_US = new Page(1);
                             <div class="col-md-5 col-sm-6">
                                 <div class="history-carousel">
                                     <div class="history-img">
-                                        <img src="images/resources/ft-img2.jpg" alt="">
+                                        <img src="images/about-us/hikkaduwa-beach-surfing.jpg" alt="">
                                     </div><!--history-img end-->
                                     <div class="history-img">
-                                        <img src="images/resources/ft-img3.jpg" alt="">
+                                        <img src="images/about-us/yimg_GSaW0v-640x426.jpg" alt="">
                                     </div><!--history-img end-->
                                 </div><!--history-carousel end-->
                             </div>
@@ -162,7 +154,7 @@ $ABOUT_US = new Page(1);
                                     <div class="toggle-item">
                                         <h2>Our Mission</h2>
                                         <div class="toggle-content">
-                                            <img src="images/resources/toggle1.png" alt="">
+<!--                                            <img src="images/resources/toggle1.png" alt="">-->
                                             <div class="content-data">
                                                 <h3>Our Delievery in all our country</h3>
                                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
@@ -173,7 +165,7 @@ $ABOUT_US = new Page(1);
                                     <div class="toggle-item">
                                         <h2>Our Vision</h2>
                                         <div class="toggle-content">
-                                            <img src="images/resources/toggle1.png" alt="">
+<!--                                            <img src="images/resources/toggle1.png" alt="">-->
                                             <div class="content-data">
                                                 <h3>Our Delievery in all our country</h3>
                                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
@@ -184,7 +176,7 @@ $ABOUT_US = new Page(1);
                                     <div class="toggle-item">
                                         <h2>About Us</h2>
                                         <div class="toggle-content">
-                                            <img src="images/resources/toggle1.png" alt="">
+<!--                                            <img src="images/resources/toggle1.png" alt="">-->
                                             <div class="content-data">
                                                 <h3>Our Delievery in all our country</h3>
                                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit.</p>

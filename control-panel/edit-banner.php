@@ -50,46 +50,39 @@ $BANNER = new Banner($id);
                                 </h2>
 
                             </div>
-                            <div class="body row">
+                            <div class="body">
                                 <form class="form-horizontal" method="post" action="post-and-get/banner.php" enctype="multipart/form-data"> 
 
-                                    <div class="row clearfix">
 
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="title">Title</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" id="title" class="form-control"  value="<?php echo $BANNER->title; ?>"  name="title"  required="TRUE">
-                                                </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="title" class="form-control"  value="<?php echo $BANNER->title; ?>"  name="title"  required="TRUE">
+                                                <label class="form-label">Title</label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                            <label for="image">Image</label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="file" id="image" class="form-control" value="<?php echo $SLIDER->image_name; ?>"  name="image">
-                                                    <img src="../upload/banner/<?php echo $BANNER->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
-                                                </div>
+                                    </div>
+                                    <div class="col-md-12">                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="file" id="image" class="form-control" value="<?php echo $SLIDER->image_name; ?>"  name="image">
+                                                <img src="../upload/banner/<?php echo $BANNER->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
                                             </div>
                                         </div>
-
                                     </div>
 
 
-                                    <div class="row clearfix">
-                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                    <div class="col-md-12">
 
-                                            <input type="hidden" id="oldImageName" value="<?php echo $BANNER->image_name; ?>" name="oldImageName"/>
-                                            <input type="hidden" id="id" value="<?php echo $BANNER->id; ?>" name="id"/>
+                                        <input type="hidden" id="oldImageName" value="<?php echo $BANNER->image_name; ?>" name="oldImageName"/>
+                                        <input type="hidden" id="id" value="<?php echo $BANNER->id; ?>" name="id"/>
 <!--                                            <input type="hidden" id="authToken" value="<?php echo $_SESSION["authToken"]; ?>" name="authToken"/>-->
-                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
-                                        </div>
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect" name="update" value="update">Save Changes</button>
                                     </div>
+                                    <div class="row clearfix">  </div>
                                 </form>
+                         
                             </div>
                         </div>
                     </div>

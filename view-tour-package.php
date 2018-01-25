@@ -1,10 +1,16 @@
 <!DOCTYPE html>
+<?php
+include_once(dirname(__FILE__) . '/class/include.php');
+$id = $_GET["id"];
+
+$TourPackage = new TourPackage($id);
+?>
 <html>
 
     <!-- Mirrored from creativethemes.us/relax/event-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Nov 2017 09:28:11 GMT -->
     <head>
         <meta charset="UTF-8">
-        <title>Relax Hotel</title>
+        <title>Hikka Beach Tours</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -29,10 +35,10 @@
             <div class="about-bg">
                 <div class="container">
                     <div class="rl-banner">
-                        <h2>Tour Package Title</h2>
+                        <h2><?php echo $TourPackage->title; ?></h2>
                         <ul>
                             <li><a href="#">Home</a></li>
-                            <li><span class="active">Tour Package Title</span></li>
+                            <li><span class="active"><?php echo $TourPackage->title; ?></span></li>
                         </ul>
                     </div>
                 </div>
@@ -47,175 +53,73 @@
                         <div class="etd-des">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <div class="event_description">
-                                        <div class="title f3">
-                                            <h3>Day 1</h3>
-                                        </div><!--title end-->
-                                        <div class="ev_des">
-                                            <h5>Mirissa to Negombo / Airport</h5>
-                                            <p>ia genera bonorum; Quid enim de amicitia statueris utilitatis causa expetenda vides. Quamquam id quidem, infinitum est in hac urbe; Mihi, inquam, qui te id ipsum rogavi? Invidiosum nomen est, infame, suspectum. Possumusne ergo in vita summum bonum dicere, cum id ne in cena quidem posse videamur? Tollenda est atque extrahenda radicitus. At ille pellit, qui permulcet sensum voluptate. Quae duo sunt, unum facit. Sed quanta sit alias, nunc tantum possitne esse tanta. Non quaero, quid dicat.</p>
-                                            <div class="event-para">
-                                                <div class="event_links">
-                                                    <ul>
-                                                        <li><a href="#" title="">Nam liber tempor cum soluta nobis eleifend option congue nihil.</a></li>
-                                                        <li><a href="#" title="">Imperdiet doming id quod mazim placerat facer possim assum.</a></li>
+                                    <?php
+                                    $TOUR_DATES = TourDate::getTourDatesById($id);
+                                    foreach ($TOUR_DATES as $key => $tour_date) {
+                                        ?>
+                                        <div class="event_description">
 
-                                                    </ul>
-                                                    <ul>
-                                                        <li><a href="#" title="">Claritas est etiam processus dynamicus, qui sequitur.</a></li>
-                                                        <li><a href="#" title="">Mutationem consuetudium lectorum. Mirum est notare.</a></li>
+                                            <div class="title f3">
+                                                <h3><?php echo $tour_date['title']; ?></h3>
+                                            </div><!--title end-->
+                                            <div class="ev_des text-justify">
+                                                <?php echo $tour_date['description']; ?>
 
-                                                    </ul>
-                                                </div><!--event_links end-->
-                                            </div><!--event-para end-->
-                                        </div><!--ev_des end-->
+                                            </div><!--ev_des end-->
+                                        </div><!--event_description end-->
                                         <div class="event_imgs mg-btm-50">
                                             <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/etd1.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/event-detail1.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/etd2.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/event-detail1.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/etd3.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/event-detail2.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/etd4.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/event-detail3.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
+                                                <?php
+                                                $DateId = $tour_date['id'];
+                                                $TOUR_DATES_PHOTOS = TourDatePhoto::getTourDatePhotosById($DateId);
+                                                foreach ($TOUR_DATES_PHOTOS as $key => $tour_date_photo) {
+                                                    if ($key < 4) {
+                                                        ?>
+
+                                                        <div class="col-md-3">
+                                                            <div class="etd-img">
+                                                                <img src="upload/tour-package/date/gallery/<?php echo $tour_date_photo['image_name']; ?>" alt="">
+                                                                <a class="html5lightbox" data-thumbnail="" data-group="set2" href="upload/tour-package/date/gallery/<?php echo $tour_date_photo['image_name']; ?>" title=""><i class="fa fa-arrows-alt"></i></a>
+                                                            </div><!--etd-img end-->
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                             </div>
                                         </div><!--event_imgs end-->
-                                    </div><!--event_description end-->
+                                        <?php
+                                    }
+                                    ?>
 
-                                    <div class="event_description">
-                                        <div class="title f3">
-                                            <h3>Day 2</h3>
-                                        </div><!--title end-->
-                                        <div class="ev_des">
-                                            <h5>Mirissa to Negombo / Airport</h5>
-                                            <p>ia genera bonorum; Quid enim de amicitia statueris utilitatis causa expetenda vides. Quamquam id quidem, infinitum est in hac urbe; Mihi, inquam, qui te id ipsum rogavi? Invidiosum nomen est, infame, suspectum. Possumusne ergo in vita summum bonum dicere, cum id ne in cena quidem posse videamur? Tollenda est atque extrahenda radicitus. At ille pellit, qui permulcet sensum voluptate. Quae duo sunt, unum facit. Sed quanta sit alias, nunc tantum possitne esse tanta. Non quaero, quid dicat.</p>
-                                            <div class="event-para">
-                                                <div class="event_links">
-                                                    <ul>
-                                                        <li><a href="#" title="">Nam liber tempor cum soluta nobis eleifend option congue nihil.</a></li>
-                                                        <li><a href="#" title="">Imperdiet doming id quod mazim placerat facer possim assum.</a></li>
-
-                                                    </ul>
-                                                    <ul>
-                                                        <li><a href="#" title="">Claritas est etiam processus dynamicus, qui sequitur.</a></li>
-                                                        <li><a href="#" title="">Mutationem consuetudium lectorum. Mirum est notare.</a></li>
-
-                                                    </ul>
-                                                </div><!--event_links end-->
-                                            </div><!--event-para end-->
-                                        </div><!--ev_des end-->
-                                        <div class="event_imgs mg-btm-50">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/1275916018_198276926118_1502687592_n.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/1275916018_198276926118_1502687592_n.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/etd2.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/event-detail1.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/etd3.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/event-detail2.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="etd-img">
-                                                        <img src="images/resources/etd4.jpg" alt="">
-                                                        <a class="html5lightbox" data-thumbnail="" data-group="set2" href="images/resources/event-detail3.jpg" title=""><i class="fa fa-arrows-alt"></i></a>
-                                                    </div><!--etd-img end-->
-                                                </div>
-                                            </div>
-                                        </div><!--event_imgs end-->
-                                    </div><!--event_description end-->
                                 </div>
                                 <div class="col-md-3">
                                     <div class="widget etd">
                                         <div class="widget">
                                             <div class="latest-posts">
                                                 <h3 class="sd-title">More Tour Packages</h3>
-                                                <div class="ad-container">
-                                                    <div class="post">
-                                                        <div class="post-img">
-                                                            <a href="#">
-                                                                <img src="images/resources/1116454753_198117464853_1504088059_n.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                    </div><!--post end-->
-                                                    <div class= "text-center">
-                                                        <div class="more-title">
-                                                            <a href="#">Relax Hotel in pictures
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="ad-container">
-                                                    <div class="post">
-                                                        <div class="post-img">
-                                                            <a href="#">
-                                                                <img src="images/resources/1403102262_198404112362_1502704718_n.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                    </div><!--post end-->
-                                                    <div class= "text-center">
-                                                        <div class="more-title">
-                                                            <a href="#">Relax Hotel in pictures
-                                                            </a>
+                                                <?php
+                                                $TOUR_PACKAGES = TourPackage::all();
+                                                foreach ($TOUR_PACKAGES as $tour_package) {
+                                                    ?>  
+                                                    <div class="ad-container">
+                                                        <div class="post">
+                                                            <div class="post-img">
+                                                                <a href="view-tour-package.php?id=<?php echo $tour_package['id']; ?>">
+                                                                    <img src="upload/tour-package/<?php echo $tour_package['image_name']; ?>" alt="">
+                                                                </a>
+                                                            </div>
+                                                        </div><!--post end-->
+                                                        <div class= "text-center">
+                                                            <div class="more-title">
+                                                                <a href="view-tour-package.php?id=<?php echo $tour_package['id']; ?>"><?php echo $tour_package['title']; ?>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="ad-container">
-                                                    <div class="post">
-                                                        <div class="post-img">
-                                                            <a href="#">
-                                                                <img src="images/resources/1275916018_198276926118_1502687592_n.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                    </div><!--post end-->
-                                                    <div class= "text-center">
-                                                        <div class="more-title">
-                                                            <a href="#">Relax Hotel in pictures
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="ad-container">
-                                                    <div class="post">
-                                                        <div class="post-img">
-                                                            <a href="#">
-                                                                <img src="images/resources/1403102262_198404112362_1502704718_n.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                    </div><!--post end-->
-                                                    <div class= "text-center">
-                                                        <div class="more-title">
-                                                            <a href="#">Relax Hotel in pictures
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    <?php
+                                                }
+                                                ?>
                                             </div><!--latest-posts end-->
                                         </div><!--widget end-->
                                     </div><!--widget end-->
@@ -244,3 +148,5 @@
 
     <!-- Mirrored from creativethemes.us/relax/event-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Nov 2017 09:28:49 GMT -->
 </html>
+
+

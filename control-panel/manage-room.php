@@ -3,7 +3,6 @@ include_once(dirname(__FILE__) . '/../class/include.php');
 include_once(dirname(__FILE__) . '/auth.php');
 
 $ROOM = new Room(NULL);
-
 ?> 
 ﻿<!DOCTYPE html>
 <html>
@@ -48,55 +47,34 @@ $ROOM = new Room(NULL);
                             <div class="body">
                                 <!--                                <div class="table-responsive">-->
                                 <div>
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>No of Rooms</th>
-                                                <th>Price</th> 
-                                                <th>Option</th> 
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th> 
-                                                <th>Short Description</th>
-                                                <th>Description</th>
-                                                <th>No of Rooms</th>
-                                                <th>Price</th> 
-                                                <th>Option</th> 
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-
-                                            <?php
-                                            $ROOM = new Room(NULL);
-                                            foreach ($ROOM->all() as $key => $room) {
+                                    <div class="row clearfix">
+                                        <?php
+                                        $ROOM = Room::all();
+                                        if (count($ROOM) > 0) {
+                                            foreach ($ROOM as $key => $room) {
                                                 ?>
-                                                <tr id="row_<?php echo $room['id']; ?>">
-                                                    <td><?php echo $room['queue']; ?></td> 
-                                                    <td><?php echo $room['title']; ?></td> 
-                                                    <td><?php echo $room['short_description']; ?></td> 
-                                                    <td><?php echo $room['description']; ?></td> 
-                                                    <td><?php echo $room['no_of_rooms']; ?></td> 
-                                                    <td><?php echo $room['price']; ?></td> 
-                                                    <td> 
-                                                        <a href="edit-room.php?id=<?php echo $room['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-pencil"></i></a>  |  
-                                                       <a href="#" class="delete-room btn btn-sm btn-danger" data-id="<?php echo $room['id']; ?>">
-                                                            <i class="waves-effect glyphicon glyphicon-trash" data-type="cancel"></i>
-                                                        </a> | 
-                                                        <a href="view-room-photos.php?id=<?php echo $room['id']; ?>" class="op-link btn btn-sm btn-default"><i class="glyphicon glyphicon-picture"></i></a> 
-                                                    </td>
-                                                </tr>
+                                                <div class="col-md-3"  id="div<?php echo $room['id']; ?>">
+                                                    <div class="photo-img-container">
+                                                        <img src="../upload/room/<?php echo $room['image_name']; ?>" class="img-responsive ">
+                                                    </div>
+                                                    <div class="img-caption">
+                                                        <p class="maxlinetitle"><?php echo $room['title']; ?></p>
+                                                        <div class="d">
+                                                            <a href="#"  class="delete-room" data-id="<?php echo $room['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn"></button></a>
+                                                            <a href="edit-room.php?id=<?php echo $room['id']; ?>"> <button class="glyphicon glyphicon-pencil edit-btn"></button></a>
+                                                            <a href="arrange-room.php?id=<?php echo $room['id']; ?>">  <button class="glyphicon glyphicon-random arrange-btn"></button></a>
+                                                            <a href="view-room-photos.php?id=<?php echo $room['id']; ?>">  <button class="glyphicon glyphicon-picture arrange-btn"></button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                             }
-                                            ?>   
-                                        </tbody>
-                                    </table>
+                                        } else {
+                                            ?> 
+                                            <b style="padding-left: 15px;">No Rooms in the database.</b> 
+                                        <?php } ?> 
+
+                                    </div>
                                 </div>
                                 <!--                                </div>-->
                             </div>
@@ -125,7 +103,7 @@ $ROOM = new Room(NULL);
         <script src="js/admin.js"></script>
         <script src="js/pages/tables/jquery-datatable.js"></script>
         <script src="js/demo.js"></script>
-        
+
         <script src="plugins/sweetalert/sweetalert.min.js"></script>
         <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
         <script src="js/pages/ui/dialogs.js"></script>

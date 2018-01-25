@@ -96,11 +96,9 @@ include_once(dirname(__FILE__) . '/../class/include.php');
                             </div>
                         </div>
                         <div class="row m-t-15 m-b--20">
-                            <div class="col-xs-6">
-                                <a href="sign-up.html">Register Now!</a>
-                            </div>
-                            <div class="col-xs-6 align-right">
-                                <a href="forgot-password.html">Forgot Password?</a>
+                          
+                            <div class="col-xs-12 align-center">
+                                <a href="forget-password.php">Forgot Username or Password?</a>
                             </div>
                         </div>
                     </form>
